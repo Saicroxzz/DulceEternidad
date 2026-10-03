@@ -1,0 +1,19 @@
+# Dependencias y temporales
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+
+# Vercel
+.vercel/
+
+# Editores y entornos
+.vscode/
+.idea/
+.gemini/
+*.swp
+*.swo
+
+# Respaldos locales opcionales
+.env
+.env.local

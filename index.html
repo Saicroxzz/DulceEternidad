@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dulce Eternidad — Flores artesanales en limpia pipas</title>
+  <meta name="description" content="Ramos y flores eternas modeladas a mano en técnica limpia pipas. Creaciones artesanales únicas que no se marchitan. Perfectas para regalar en cualquier ocasión.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css">
+  <script>
+    (function(){
+      try {
+        var raw = localStorage.getItem("dulce_eternidad_settings_v6") || localStorage.getItem("dulce_eternidad_settings");
+        var heroUrl = "./img/Ramo de flores amarillas artesanales.png";
+        if (raw) {
+          var s = JSON.parse(raw);
+          if (s && s.heroImage) heroUrl = s.heroImage;
+        }
+        document.documentElement.style.setProperty("--hero-cached-bg", 'url("' + encodeURI(heroUrl) + '")');
+      } catch(e){}
+    })();
+  </script>
+  <style>
+    /* ── ANIMACIONES ─────────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.52s ease, transform 0.52s ease;
+    }
+    .fade-up.in { opacity: 1; transform: none; }
+    .fade-up.d1 { transition-delay: 0.1s; }
+    .fade-up.d2 { transition-delay: 0.2s; }
+    .fade-up.d3 { transition-delay: 0.3s; }
+
+    /* ── HERO BANNER ─────────────────────────────────────── */
+    .hero-banner {
+      position: relative;
+      min-height: min(86vh, 640px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background-color: #1a0810;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: var(--hero-cached-bg, url("./img/Ramo de flores amarillas artesanales.png"));
+      background-size: cover;
+      background-position: right center;
+      background-repeat: no-repeat;
+      transition: background-image 0.4s ease;
+    }
+
+    /* Overlay degradado editorial:
+       Profundo y legible a la izquierda para el texto,
+       luminoso y abierto a la derecha para apreciar el ramo artesanal */
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right,
+          rgba(20, 6, 12, 0.84) 0%,
+          rgba(20, 6, 12, 0.72) 36%,
+          rgba(20, 6, 12, 0.42) 58%,
+          rgba(20, 6, 12, 0.12) 80%,
+          rgba(20, 6, 12, 0.04) 100%
+        ),
+        linear-gradient(to top,
+          rgba(20, 6, 12, 0.35) 0%,
+          transparent 35%
+        );
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max-w, 1140px), calc(100% - 64px));
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: clamp(32px, 4.5vw, 76px);
+      padding-right: 24px;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 540px;
+      width: 100%;
+      padding: 72px 0 80px;
+      text-align: left;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .hero-badge::before,
+    .hero-badge::after {
+      content: "";
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.3rem, 5.2vw, 3.8rem);
+      line-height: 1.08;
+      color: #fff;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.35);
+    }
+
+    .hero-content h1 em {
+      font-style: italic;
+      color: #f7d77e;   /* dorado cálido armonizado con el ramo amarillo */
+      display: block;
+    }
+
+    .hero-content .lead {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.88);
+      max-width: 32rem;
+      margin-bottom: 32px;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.25);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-cta .btn-primary {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+      color: #fff;
+    }
+    .hero-cta .btn-primary:hover {
+      background: var(--burgundy-deep);
+      border-color: var(--burgundy-deep);
+    }
+
+    .hero-cta .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.48);
+      color: #fff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .hero-cta .btn-secondary:hover {
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.85);
+      color: #fff;
+    }
+
+    /* Scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      animation: bounce-hint 2.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .scroll-hint svg {
+      width: 18px; height: 18px;
+      stroke: rgba(255,255,255,0.45);
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    @keyframes bounce-hint {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── MARQUEE STRIP INFINITO (sin espacios en blanco) ─── */
+    .strip {
+      background: var(--burgundy);
+      padding: 13px 0;
+      overflow: hidden;
+      user-select: none;
+      white-space: nowrap;
+      display: flex;
+      position: relative;
+      border-top: 1px solid rgba(212, 169, 90, 0.25);
+      border-bottom: 1px solid rgba(212, 169, 90, 0.25);
+    }
+    .strip-track {
+      display: flex;
+      width: max-content;
+      flex-shrink: 0;
+      animation: strip-marquee 42s linear infinite;
+      will-change: transform;
+    }
+    .strip:hover .strip-track {
+      animation-play-state: paused;
+    }
+    .strip-group {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .strip-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 0 24px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(253,245,238,0.92);
+      flex-shrink: 0;
+    }
+    .strip-item svg {
+      width: 14px; height: 14px;
+      stroke: var(--gold);
+      stroke-width: 1.9;
+      fill: none;
+      flex-shrink: 0;
+    }
+    .strip-dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.55;
+      flex-shrink: 0;
+    }
+    @keyframes strip-marquee {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    /* ── FEATURED ─────────────────────────────────────────── */
+    .sec { padding: 64px 0; }
+    .sec-sm { padding: 0 0 64px; }
+
+    .sec-head { margin-bottom: 36px; }
+    .sec-head .eyebrow { margin-bottom: 8px; display: block; }
+
+    .sec-head.centered { text-align: center; }
+    .sec-head.centered p { max-width: 34rem; margin-inline: auto; }
+
+    /* ── CAT TILES (sin border-left, con ícono SVG) ──────── */
+    .cat-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cat-tile {
+      background: var(--white);
+      border: 1px solid var(--gold-soft);
+      border-radius: var(--r-md);
+      padding: 26px 22px 24px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: none;
+      transition: border-color .18s ease, background .18s ease;
+    }
+    .cat-tile:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: var(--burgundy);
+      background: var(--cream-deep);
+      color: inherit;
+    }
+
+    .cat-icon {
+      width: 36px; height: 36px;
+      background: var(--blush);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+      flex-shrink: 0;
+    }
+    .cat-icon svg {
+      width: 18px; height: 18px;
+      stroke: var(--burgundy);
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cat-tile-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .cat-tile h3   { font-size: 1.1rem; margin-bottom: 1px; color: var(--burgundy); }
+    .cat-tile p    { font-size: 0.84rem; color: var(--muted); margin: 0; line-height: 1.5; }
+
+    /* ── HISTORIA ─────────────────────────────────────────── */
+    .historia-card {
+      background: var(--white);
+      border: 1px solid var(--gold-soft);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: none;
+      display: grid;
+    }
+
+    .hist-bar {
+      height: 3px;
+      background: linear-gradient(to right, var(--burgundy) 0%, var(--gold) 60%, var(--rose) 100%);
+    }
+
+    .hist-body {
+      padding: 40px 36px;
+      display: grid;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hist-text h2     { margin-bottom: 14px; }
+    .hist-text .eyebrow { margin-bottom: 10px; display: block; }
+    .hist-text p { font-size: 1rem; line-height: 1.78; color: var(--text); }
+    .hist-text p + p { margin-top: 12px; }
+
+    .hist-stats { display: flex; flex-direction: column; gap: 10px; }
+
+    .hstat {
+      background: var(--cream);
+      border: 1px solid var(--gold-soft);
+      border-radius: var(--r-sm);
+      padding: 14px 18px;
+    }
+    .hstat-n {
+      font-family: "EB Garamond", Georgia, serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .hstat-l {
+      font-size: 0.73rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+    }
+
+    /* ── INSTAGRAM ─────────────────────────────────────────── */
+    .ig-home { padding: 0 0 80px; }
+
+    .ig-card {
+      background: var(--blush);
+      border: 1px solid var(--gold-soft);
+      border-radius: var(--r-lg);
+      padding: 44px 40px;
+      display: grid;
+      gap: 44px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ig-card-deco {
+      position: absolute;
+      right: -12px; top: 50%;
+      transform: translateY(-50%) rotate(8deg);
+      font-size: 150px;
+      color: rgba(201,162,91,.06);
+      pointer-events: none;
+      line-height: 1;
+      font-family: serif;
+    }
+
+    .ig-card-cnt { position: relative; z-index: 1; }
+    .ig-card-cnt .eyebrow { display: block; margin-bottom: 8px; }
+    .ig-card-cnt h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-bottom: 18px; }
+
+    .ig-quote-bar {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text);
+      border-left: 2px solid var(--gold);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      line-height: 1.65;
+    }
+
+    .ig-img-wrap { position: relative; z-index: 1; }
+
+    .ig-img {
+      width: 100%;
+      max-width: 440px;
+      margin-inline: auto;
+      border-radius: var(--r-md);
+      border: 1px solid var(--gold-soft);
+      box-shadow: none;
+    }
+    .ig-img:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (min-width: 640px) {
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 768px) {
+      .cat-grid     { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .hist-body    { grid-template-columns: 1.35fr 0.65fr; gap: 48px; padding: 48px 48px; }
+      .ig-card      { grid-template-columns: 1.05fr 0.95fr; gap: 48px; }
+      .hero-content { max-width: 480px; }
+      .hero-bg      { background-position: 84% center; }
+    }
+
+    @media (min-width: 1024px) {
+      .hist-body    { padding: 52px 56px; }
+      .ig-card      { padding: 52px 52px; }
+      .hero-content { max-width: 520px; }
+      .hero-bg      { background-position: right center; }
+    }
+
+    @media (max-width: 767px) {
+      .hero-banner {
+        min-height: clamp(480px, 80vh, 560px);
+        padding: 44px 0 36px;
+      }
+      .scroll-hint {
+        display: none;
+      }
+      .hero-bg {
+        background-position: 68% center;
+      }
+      /* En pantallas reducidas el overlay cubre de forma homogénea para máxima legibilidad */
+      .hero-bg::after {
+        background: linear-gradient(
+          180deg,
+          rgba(18, 5, 10, 0.85) 0%,
+          rgba(18, 5, 10, 0.66) 42%,
+          rgba(18, 5, 10, 0.88) 100%
+        );
+      }
+      .hero-container {
+        width: 100%;
+        padding-left: clamp(20px, 5vw, 32px);
+        padding-right: clamp(20px, 5vw, 32px);
+      }
+      .hero-content {
+        max-width: 100%;
+        padding: 0;
+      }
+      .hero-content h1 {
+        font-size: clamp(1.95rem, 8vw, 2.5rem);
+        margin-bottom: 12px;
+      }
+      .hero-content .lead {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 22px;
+      }
+      .strip {
+        padding: 10px 0;
+      }
+      .strip-item {
+        padding: 0 16px;
+        font-size: 0.68rem;
+        gap: 7px;
+      }
+      .strip-item svg {
+        width: 12px;
+        height: 12px;
+      }
+      .strip-dot {
+        width: 3px;
+        height: 3px;
+      }
+      .sec {
+        padding: 48px 0;
+      }
+      .sec-sm {
+        padding: 0 0 48px;
+      }
+      .sec-head {
+        margin-bottom: 26px;
+      }
+      .hist-body {
+        padding: 28px 20px;
+        gap: 24px;
+      }
+      .hist-text h2 {
+        font-size: clamp(1.45rem, 5.5vw, 1.85rem);
+      }
+      .ig-home {
+        padding: 0 0 56px;
+      }
+      .ig-card {
+        padding: 30px 20px;
+        gap: 24px;
+        border-radius: var(--r-md);
+      }
+      .ig-card-deco {
+        display: none;
+      }
+      .ig-card-cnt h2 {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+      }
+      .ig-quote-bar {
+        font-size: 0.94rem;
+        margin-bottom: 16px;
+      }
+      .ig-img {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 539px) {
+      .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+      }
+      .hero-cta .btn {
+        width: 100%;
+        min-height: 48px;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.95rem;
+      }
+      .cat-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .cat-tile {
+        flex-direction: row;
+        align-items: center;
+        padding: 16px 18px;
+        gap: 16px;
+      }
+      .cat-icon {
+        margin-bottom: 0;
+        width: 44px;
+        height: 44px;
+      }
+      .cat-tile-text {
+        flex: 1;
+      }
+      .cat-tile h3 {
+        font-size: 1.05rem;
+        margin-bottom: 2px;
+      }
+      .cat-tile p {
+        font-size: 0.82rem;
+      }
+      .hist-stats {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .hstat {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+      }
+      .hstat-n {
+        margin-bottom: 0;
+        font-size: 1.55rem;
+      }
+      .hstat-l {
+        font-size: 0.72rem;
+      }
+      .ig-card-cnt .btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        min-height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div data-header></div>
+
+  <main>
+
+    
+    <section class="hero-banner" aria-label="Portada" id="hero-section">
+      <div class="hero-bg" id="hero-bg"></div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <span class="hero-badge fade-up" id="hero-eyebrow">Flores artesanales &middot; Limpia pipas</span>
+          <h1 class="fade-up d1" id="hero-title">
+            El arte de regalar
+            <em>amor eterno</em>
+          </h1>
+          <p class="lead fade-up d2" id="hero-subtitle">
+            Cada pétalo modelado a mano, uno a uno. Flores que no se marchitan,
+            pensadas para los momentos que queremos recordar siempre.
+          </p>
+          <div class="hero-cta fade-up d3">
+            <a class="btn btn-primary" href="./catalogo.html" id="hero-cta-cat">
+              Ver catálogo
+            </a>
+            <a class="btn btn-secondary" href="./nosotros.html" id="hero-cta-nos">
+              Nuestra historia
+            </a>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="scroll-hint" aria-hidden="true">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    
+    <div class="strip" aria-hidden="true">
+      <div class="strip-track">
+        
+        <div class="strip-group">
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22V12m0-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/><path d="M12 12c-2.5 0-5-2-5-4.5S9.5 3 12 3"/></svg>
+            Hecho a mano con amor
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z"/></svg>
+            Flores que nunca se marchitan
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            Técnica artesanal limpia pipas
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Cada pétalo modelado a mano
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            Regalos eternos y memorables
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Envíos cuidadosos y protegidos
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.5-.58 1.5-1.5 0-.42-.16-.8-.44-1.1-.28-.31-.44-.69-.44-1.15 0-.97.78-1.75 1.75-1.75h2.08c3.06 0 5.55-2.49 5.55-5.55 0-5.5-4.5-9-10-9z"/></svg>
+            Diseños únicos y personalizados
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.267-8-12.356-8-5.096 0-5.096 8 0 8 5.096 0 7.261-8 12.356-8z"/></svg>
+            Amor que perdura en el tiempo
+          </span>
+          <span class="strip-dot"></span>
+          
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22V12m0-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/><path d="M12 12c-2.5 0-5-2-5-4.5S9.5 3 12 3"/></svg>
+            Hecho a mano con amor
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z"/></svg>
+            Flores que nunca se marchitan
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            Técnica artesanal limpia pipas
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Cada pétalo modelado a mano
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            Regalos eternos y memorables
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Envíos cuidadosos y protegidos
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.5-.58 1.5-1.5 0-.42-.16-.8-.44-1.1-.28-.31-.44-.69-.44-1.15 0-.97.78-1.75 1.75-1.75h2.08c3.06 0 5.55-2.49 5.55-5.55 0-5.5-4.5-9-10-9z"/></svg>
+            Diseños únicos y personalizados
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.267-8-12.356-8-5.096 0-5.096 8 0 8 5.096 0 7.261-8 12.356-8z"/></svg>
+            Amor que perdura en el tiempo
+          </span>
+          <span class="strip-dot"></span>
+        </div>
+
+        
+        <div class="strip-group" aria-hidden="true">
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22V12m0-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/><path d="M12 12c-2.5 0-5-2-5-4.5S9.5 3 12 3"/></svg>
+            Hecho a mano con amor
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z"/></svg>
+            Flores que nunca se marchitan
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            Técnica artesanal limpia pipas
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Cada pétalo modelado a mano
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            Regalos eternos y memorables
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Envíos cuidadosos y protegidos
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.5-.58 1.5-1.5 0-.42-.16-.8-.44-1.1-.28-.31-.44-.69-.44-1.15 0-.97.78-1.75 1.75-1.75h2.08c3.06 0 5.55-2.49 5.55-5.55 0-5.5-4.5-9-10-9z"/></svg>
+            Diseños únicos y personalizados
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.267-8-12.356-8-5.096 0-5.096 8 0 8 5.096 0 7.261-8 12.356-8z"/></svg>
+            Amor que perdura en el tiempo
+          </span>
+          <span class="strip-dot"></span>
+          
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22V12m0-6a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/><path d="M12 12c-2.5 0-5-2-5-4.5S9.5 3 12 3"/></svg>
+            Hecho a mano con amor
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.6 2.4 7.4L12 17l-6.2 4.4 2.4-7.4L2 9.4h7.6z"/></svg>
+            Flores que nunca se marchitan
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            Técnica artesanal limpia pipas
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Cada pétalo modelado a mano
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            Regalos eternos y memorables
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Envíos cuidadosos y protegidos
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.5-.58 1.5-1.5 0-.42-.16-.8-.44-1.1-.28-.31-.44-.69-.44-1.15 0-.97.78-1.75 1.75-1.75h2.08c3.06 0 5.55-2.49 5.55-5.55 0-5.5-4.5-9-10-9z"/></svg>
+            Diseños únicos y personalizados
+          </span>
+          <span class="strip-dot"></span>
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.267-8-12.356-8-5.096 0-5.096 8 0 8 5.096 0 7.261-8 12.356-8z"/></svg>
+            Amor que perdura en el tiempo
+          </span>
+          <span class="strip-dot"></span>
+        </div>
+      </div>
+    </div>
+
+    
+    <section class="sec wrap" id="destacados" aria-labelledby="h2-dest">
+      <div class="sec-head centered fade-up">
+        <span class="eyebrow">Selección especial</span>
+        <h2 id="h2-dest">Ramos destacados</h2>
+        <p class="muted" style="font-size:1rem; margin-top: 6px;">
+          Una muestra de nuestras creaciones artesanales más queridas.
+        </p>
+      </div>
+
+      <div class="product-grid" id="featured-grid" data-featured></div>
+
+      <div style="text-align:center; margin-top:36px;" class="fade-up">
+        <a class="btn btn-secondary" href="./catalogo.html" id="cta-catalogo">
+          Ver todo el catálogo
+        </a>
+      </div>
+    </section>
+
+    <section class="sec wrap" id="sec-especial-promociones" aria-labelledby="promo-title" style="border-top: 1px solid var(--gold-soft); padding-top: 48px; margin-top: 24px;">
+      <div class="sec-head centered fade-up">
+        <span class="badge" id="promo-pill" style="margin-bottom: 12px; background: var(--blush); color: var(--burgundy); border: 1px solid var(--gold-soft);">Edición Limitada · Confección Artesanal</span>
+        <span class="eyebrow" id="promo-eyebrow" style="display:block;">Colección Especial</span>
+        <h2 id="promo-title">Creaciones en Promoción & Más Elegidas</h2>
+        <p class="muted" id="promo-subtitle" style="font-size:1rem; margin-top: 6px; max-width: 36rem; margin-inline: auto;">
+          Aprovecha nuestras flores artesanales modeladas en limpia pipas con acabados exclusivos.
+        </p>
+      </div>
+      <div class="product-grid" id="promo-grid"></div>
+    </section>
+
+    <section class="sec-sm wrap" id="categorias" aria-labelledby="h2-cats">
+      <div class="sec-head fade-up">
+        <span class="eyebrow">Explorar</span>
+        <h2 id="h2-cats">Nuestras categorías</h2>
+        <p class="muted" style="font-size:1rem; margin-top: 6px;">
+          Elige el tipo de detalle que buscas para tu ocasión.
+        </p>
+      </div>
+
+      <nav class="cat-grid" aria-label="Categorías del catálogo">
+        <a class="cat-tile fade-up" href="./catalogo.html?cat=Ramos" id="cat-ramos">
+          <span class="cat-icon">
+            
+            <svg viewBox="0 0 24 24"><path d="M12 22v-8"/><path d="M12 14c0 0-4-2.5-4-6a4 4 0 0 1 8 0c0 3.5-4 6-4 6z"/><path d="M9.5 7C9.5 5.07 10.62 3.5 12 3.5s2.5 1.57 2.5 3.5"/></svg>
+          </span>
+          <div class="cat-tile-text">
+            <span class="eyebrow">Colección</span>
+            <h3>Ramos</h3>
+            <p>Para regalar, celebrar o sorprender con flores que no se marchitan.</p>
+          </div>
+        </a>
+
+        <a class="cat-tile fade-up d1" href="./catalogo.html?cat=Arreglos" id="cat-arreglos">
+          <span class="cat-icon">
+            
+            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </span>
+          <div class="cat-tile-text">
+            <span class="eyebrow">Colección</span>
+            <h3>Arreglos</h3>
+            <p>Decora tu espacio con colores eternos que no piden agua.</p>
+          </div>
+        </a>
+
+        <a class="cat-tile fade-up d2" href="./catalogo.html?cat=Eventos" id="cat-eventos">
+          <span class="cat-icon">
+            
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </span>
+          <div class="cat-tile-text">
+            <span class="eyebrow">Colección</span>
+            <h3>Eventos</h3>
+            <p>Centros de mesa y decoraciones a medida para celebraciones especiales.</p>
+          </div>
+        </a>
+
+        <a class="cat-tile fade-up d3" href="./catalogo.html?cat=Regalos%20especiales" id="cat-regalos">
+          <span class="cat-icon">
+            
+            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+          </span>
+          <div class="cat-tile-text">
+            <span class="eyebrow">Colección</span>
+            <h3>Regalos especiales</h3>
+            <p>Rosas individuales y detalles pequeños listos para regalar hoy.</p>
+          </div>
+        </a>
+      </nav>
+    </section>
+
+    <section class="sec-sm wrap" id="sec-taller-envios" aria-label="Taller y Envíos" style="padding-top: 10px; padding-bottom: 56px;">
+      <div class="workshop-card" style="background: var(--cream); border: 1px solid var(--gold-soft); border-radius: var(--r-lg); padding: 36px 32px;">
+        <div class="sec-head" style="margin-bottom: 28px;">
+          <span class="eyebrow" style="color: var(--gold); letter-spacing: 0.14em;">Atención & Logística</span>
+          <h2 style="font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 6px;">Taller Artesanal & Cobertura de Envíos</h2>
+          <p class="muted" style="margin: 0; font-size: 0.95rem;">Cada ramo se elabora pacientemente a mano en técnica limpia pipas para garantizar una calidad que no se marchita.</p>
+        </div>
+
+        <div class="workshop-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          <div class="workshop-col" style="background: var(--white); border: 1px solid var(--gold-soft); border-radius: var(--r-md); padding: 22px 20px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--blush); display: flex; align-items: center; justify-content: center; color: var(--burgundy); flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h3 style="font-size: 1.15rem; margin: 0;">Horario de Atención</h3>
+            </div>
+            <p id="home-workshop-schedule" style="color: var(--text); font-size: 0.95rem; margin: 0; font-weight: 500;">
+              Lunes a Sábado: 8:00 AM - 6:00 PM
+            </p>
+          </div>
+
+          <div class="workshop-col" style="background: var(--white); border: 1px solid var(--gold-soft); border-radius: var(--r-md); padding: 22px 20px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--blush); display: flex; align-items: center; justify-content: center; color: var(--burgundy); flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none;"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 0 0 0 14v6"/></svg>
+              </div>
+              <h3 style="font-size: 1.15rem; margin: 0;">Elaboración Artesanal</h3>
+            </div>
+            <p id="home-workshop-prep" style="color: var(--text); font-size: 0.95rem; margin: 0; font-weight: 500;">
+              2 a 3 días de elaboración
+            </p>
+          </div>
+
+          <div class="workshop-col" style="background: var(--white); border: 1px solid var(--gold-soft); border-radius: var(--r-md); padding: 22px 20px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+              <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--blush); display: flex; align-items: center; justify-content: center; color: var(--burgundy); flex-shrink: 0;">
+                <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; stroke: currentColor; stroke-width: 2; fill: none;"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <h3 style="font-size: 1.15rem; margin: 0;">Cobertura & Envíos</h3>
+            </div>
+            <p id="home-workshop-coverage" style="color: var(--text); font-size: 0.95rem; margin: 0; font-weight: 500;">
+              Envíos a todo el país y entregas locales
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec-sm wrap" id="historia" aria-labelledby="h2-hist">
+      <div class="historia-card fade-up">
+        <div class="hist-bar"></div>
+        <div class="hist-body">
+          <div class="hist-text">
+            <span class="eyebrow" id="hist-eyebrow">Nuestra historia</span>
+            <h2 id="h2-hist">Hecho con calma<br>y con las manos</h2>
+            <p id="hist-p1">
+              Dulce Eternidad es un taller floral dedicado a la creación de flores eternas
+              modeladas a mano con la técnica de limpia pipas. Cada pétalo, tallo y hoja
+              se arma pacientemente para una ocasión concreta: un cumpleaños, un aniversario,
+              un agradecimiento, o simplemente un "te quiero".
+            </p>
+            <p id="hist-p2">
+              No usamos flores de plástico desechables ni imitaciones industriales.
+              Cada pieza es un trabajo manual único que conserva su forma y color
+              sin marchitarse.
+            </p>
+            <div style="margin-top: 24px;">
+              <a class="btn btn-secondary" href="./nosotros.html" id="hist-cta">Conocer más</a>
+            </div>
+          </div>
+
+          <div class="hist-stats">
+            <div class="hstat">
+              <div class="hstat-n" id="hstat-1-n">100%</div>
+              <div class="hstat-l" id="hstat-1-l">Hecho a mano</div>
+            </div>
+            <div class="hstat">
+              <div class="hstat-n" id="hstat-2-n">&#8734;</div>
+              <div class="hstat-l" id="hstat-2-l">No se marchita</div>
+            </div>
+            <div class="hstat">
+              <div class="hstat-n" id="hstat-3-n">1&times;1</div>
+              <div class="hstat-l" id="hstat-3-l">Cada pieza es única</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="ig-home wrap" id="instagram" aria-labelledby="h2-ig">
+      <div class="ig-card fade-up">
+        <div class="ig-card-deco" aria-hidden="true">&#9829;</div>
+
+        <div class="ig-card-cnt">
+          <span class="eyebrow" id="ig-eyebrow">Síguenos</span>
+          <h2 id="h2-ig">@dulce.eternidad7</h2>
+          <p class="ig-quote-bar" id="ig-quote">
+            "Conoce más de nuestros ramos, nuestras creaciones y sé parte de esta dulce historia."
+          </p>
+          <p class="muted" id="ig-desc" style="font-size:.93rem; margin-bottom: 22px;">
+            Publicamos nuevos diseños, encargos personalizados y el proceso artesanal de cada flor.
+          </p>
+          <a class="btn btn-primary"
+             href="https://instagram.com/dulce.eternidad7"
+             target="_blank" rel="noopener noreferrer" id="ig-btn">
+            Seguir en Instagram
+          </a>
+        </div>
+
+        <div class="ig-img-wrap">
+          <img class="ig-img"
+               src="./img/Tarjeta.jpeg"
+               alt="Tarjeta de presentación de Dulce Eternidad con código QR hacia @dulce.eternidad7">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-footer></div>
+
+  <script type="module">
+    import { getProducts, getSettings, getSettingsSync, DEFAULT_HERO_IMAGE } from "./js/store.js";
+    import { mountPublicChrome, productCard, escapeHtml } from "./js/ui.js";
+
+    mountPublicChrome({ current: "inicio" });
+
+    // Cargar configuración síncrona inmediata para eliminar splash
+    const cachedSettings = getSettingsSync();
+    const heroBg = document.getElementById("hero-bg");
+    if (heroBg && cachedSettings.heroImage) {
+      heroBg.style.backgroundImage = `url("${encodeURI(cachedSettings.heroImage)}")`;
+    }
+
+    // Cargar configuración dinámica
+    const settings = await getSettings();
+
+    // 1. Hero background & textos
+    const heroImg  = settings.heroImage || DEFAULT_HERO_IMAGE;
+    if (heroBg) {
+      heroBg.style.backgroundImage = `url("${encodeURI(heroImg)}")`;
+    }
+    if (settings.heroEyebrow) {
+      const eb = document.getElementById("hero-eyebrow");
+      if (eb) eb.textContent = settings.heroEyebrow;
+    }
+    if (settings.heroTitle) {
+      const ht = document.getElementById("hero-title");
+      if (ht) {
+        // Soporta marcar con _itálica_ o usar el formato nativo
+        if (settings.heroTitle.includes("_")) {
+          ht.innerHTML = escapeHtml(settings.heroTitle).replace(/_([^_]+)_/g, "<em>$1</em>");
+        } else {
+          ht.textContent = settings.heroTitle;
+        }
+      }
+    }
+    if (settings.heroSubtitle) {
+      const sub = document.getElementById("hero-subtitle");
+      if (sub) sub.textContent = settings.heroSubtitle;
+    }
+    if (settings.heroBtnPrimaryText) {
+      const b1 = document.getElementById("hero-cta-cat");
+      if (b1) {
+        b1.textContent = settings.heroBtnPrimaryText;
+        if (settings.heroBtnPrimaryLink) b1.href = settings.heroBtnPrimaryLink;
+      }
+    }
+    if (settings.heroBtnSecondaryText) {
+      const b2 = document.getElementById("hero-cta-nos");
+      if (b2) {
+        b2.textContent = settings.heroBtnSecondaryText;
+        if (settings.heroBtnSecondaryLink) b2.href = settings.heroBtnSecondaryLink;
+      }
+    }
+
+    // 2. Marquee strip infinito
+    if (Array.isArray(settings.marqueeItems) && settings.marqueeItems.length > 0) {
+      const track = document.querySelector(".strip-track");
+      if (track) {
+        const renderItems = () => settings.marqueeItems.map(item => `
+          <span class="strip-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2L9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z"/></svg>
+            ${escapeHtml(item)}
+          </span>
+          <span class="strip-dot" aria-hidden="true"></span>
+        `).join("");
+        track.innerHTML = `
+          <div class="strip-group">${renderItems()}</div>
+          <div class="strip-group">${renderItems()}</div>
+        `;
+      }
+    }
+
+    // 3. Historia y Estadísticas
+    if (settings.storyEyebrow) document.getElementById("hist-eyebrow")?.replaceChildren(settings.storyEyebrow);
+    if (settings.storyTitle) {
+      const ht = document.getElementById("h2-hist");
+      if (ht) ht.innerHTML = escapeHtml(settings.storyTitle).replace(/\n/g, "<br>");
+    }
+    if (settings.storyParagraph1) document.getElementById("hist-p1")?.replaceChildren(settings.storyParagraph1);
+    if (settings.storyParagraph2) document.getElementById("hist-p2")?.replaceChildren(settings.storyParagraph2);
+    if (settings.stat1Number) document.getElementById("hstat-1-n")?.replaceChildren(settings.stat1Number);
+    if (settings.stat1Label) document.getElementById("hstat-1-l")?.replaceChildren(settings.stat1Label);
+    if (settings.stat2Number) document.getElementById("hstat-2-n")?.replaceChildren(settings.stat2Number);
+    if (settings.stat2Label) document.getElementById("hstat-2-l")?.replaceChildren(settings.stat2Label);
+    if (settings.stat3Number) document.getElementById("hstat-3-n")?.replaceChildren(settings.stat3Number);
+    if (settings.stat3Label) document.getElementById("hstat-3-l")?.replaceChildren(settings.stat3Label);
+
+    // 4. Tarjeta Instagram
+    if (settings.igEyebrow) document.getElementById("ig-eyebrow")?.replaceChildren(settings.igEyebrow);
+    if (settings.igTitle) document.getElementById("h2-ig")?.replaceChildren(settings.igTitle);
+    if (settings.igQuote) document.getElementById("ig-quote")?.replaceChildren(settings.igQuote);
+    if (settings.igDescription) document.getElementById("ig-desc")?.replaceChildren(settings.igDescription);
+    const igBtn = document.getElementById("ig-btn");
+    if (igBtn && settings.instagram) {
+      igBtn.href = "https://instagram.com/" + settings.instagram.replace(/^@/, "");
+    }
+
+    // 5. Taller y Envíos
+    if (settings.workshopSchedule) document.getElementById("home-workshop-schedule")?.replaceChildren(settings.workshopSchedule);
+    if (settings.workshopPrepTime) document.getElementById("home-workshop-prep")?.replaceChildren(settings.workshopPrepTime);
+    if (settings.deliveryCoverage) document.getElementById("home-workshop-coverage")?.replaceChildren(settings.deliveryCoverage);
+
+    // ── Featured products
+    const all  = await getProducts();
+    const feat = all.filter(p => p.featured && p.available !== false);
+    const list = feat.length >= 3 ? feat.slice(0, 3) : all.slice(0, 3);
+    const grid = document.querySelector("[data-featured]");
+    if (grid) grid.innerHTML = list.map(p => productCard(p)).join("");
+
+    const promoSec = document.getElementById("sec-especial-promociones");
+    if (promoSec) {
+      if (settings.promoSectionEnabled === false) {
+        promoSec.style.display = "none";
+      } else {
+        promoSec.style.display = "block";
+        if (settings.promoSectionEyebrow) document.getElementById("promo-eyebrow")?.replaceChildren(settings.promoSectionEyebrow);
+        if (settings.promoSectionTitle) document.getElementById("promo-title")?.replaceChildren(settings.promoSectionTitle);
+        if (settings.promoSectionSubtitle) document.getElementById("promo-subtitle")?.replaceChildren(settings.promoSectionSubtitle);
+        if (settings.promoSectionBadge) document.getElementById("promo-pill")?.replaceChildren(settings.promoSectionBadge);
+
+        const pType = settings.promoSectionType || "promociones";
+        let promoList = [];
+        if (pType === "mas_vendidos") {
+          promoList = all.filter(p => p.featured && p.available !== false);
+          if (promoList.length < 3) promoList = all.slice(0, 3);
+        } else if (pType === "mas_recientes") {
+          promoList = all.slice().reverse().filter(p => p.available !== false).slice(0, 3);
+        } else {
+          promoList = all.filter(p => p.price && p.price <= 80000 && p.available !== false);
+          if (promoList.length < 3) promoList = all.slice(0, 3);
+        }
+        const promoGrid = document.getElementById("promo-grid");
+        if (promoGrid) promoGrid.innerHTML = promoList.map(p => productCard(p)).join("");
+      }
+    }
+
+    // ── Scroll animations
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      }),
+      { threshold: 0.08 }
+    );
+
+    document.querySelectorAll(".fade-up").forEach(el => {
+      if (el.closest(".hero-banner")) {
+        requestAnimationFrame(() => el.classList.add("in"));
+      } else {
+        io.observe(el);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nosotros — Dulce Eternidad</title>
+  <meta name="description" content="Conoce la historia detrás de Dulce Eternidad. Flores eternas hechas a mano en técnica limpia pipas con calma y dedicación.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+  <div data-header></div>
+
+  
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Sobre nosotros</span>
+      <h1>Dulce Eternidad</h1>
+      <p class="serif" style="font-size: 1.3rem; color: var(--rose); font-style: italic; margin-top: 8px;">
+        "El arte de regalar amor eterno"
+      </p>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap content-grid">
+
+      
+      <div>
+        <p style="font-size: 1.05rem; line-height: 1.78; margin-bottom: 18px;">
+          Somos un taller de flores artesanales creado con la ilusión de ofrecer un regalo
+          que permanezca en el tiempo. Cada flor se modela a mano, pétalo a pétalo, utilizando
+          la técnica de limpia pipas (chenille): suavidad al tacto, colores vibrantes y
+          gran durabilidad.
+        </p>
+
+        <p style="font-size: 1.05rem; line-height: 1.78; margin-bottom: 18px;">
+          A diferencia de las flores naturales que se marchitan o los arreglos plásticos
+          industriales, nuestras creaciones son piezas únicas hechas con calma,
+          dedicación y cariño — sin expiry date.
+        </p>
+
+        <p style="font-size: 1.05rem; line-height: 1.78; margin-bottom: 32px;">
+          Armamos ramos para cumpleaños, aniversarios, declaraciones, detalles de
+          agradecimiento y centros decorativos para tus celebraciones.
+        </p>
+
+        <a class="btn btn-primary" href="./catalogo.html" id="nos-cta-cat">
+          Ver catálogo de ramos
+        </a>
+      </div>
+
+      
+      <div>
+        <div class="logo-circle">
+          <img src="./img/Logo.jpeg" alt="Logo circular de Dulce Eternidad con monograma DE">
+        </div>
+      </div>
+
+    </div>
+
+    
+    <div class="wrap" style="padding-bottom: 80px;">
+      <section class="ig-section" aria-labelledby="h2-ig-nos">
+        <div class="ig-content">
+          <span class="eyebrow">Nuestra comunidad</span>
+          <h2 id="h2-ig-nos">Síguenos en Instagram</h2>
+          <p class="ig-quote">
+            "Conoce más de nuestros ramos, nuestras creaciones y sé parte de esta dulce historia."
+          </p>
+          <p class="muted" style="margin-bottom: 22px; font-size: .95rem;">
+            En <strong>@dulce.eternidad7</strong> compartimos el proceso artesanal, nuevos
+            modelos y pedidos especiales entregados con amor.
+          </p>
+          <a class="btn btn-secondary"
+             href="https://instagram.com/dulce.eternidad7"
+             target="_blank" rel="noopener noreferrer" id="nos-ig-btn">
+            Ir a @dulce.eternidad7
+          </a>
+        </div>
+        <div>
+          <img class="ig-card-img"
+               src="./img/Tarjeta.jpeg"
+               alt="Tarjeta de presentación con código QR de Dulce Eternidad">
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div data-footer></div>
+
+  <script type="module">
+    import { mountPublicChrome } from "./js/ui.js";
+    mountPublicChrome({ current: "nosotros" });
+  </script>
+</body>
+</html>

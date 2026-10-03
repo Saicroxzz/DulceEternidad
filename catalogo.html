@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de flores — Dulce Eternidad</title>
+  <meta name="description" content="Explora nuestro catálogo de ramos y arreglos florales hechos a mano en técnica limpia pipas. Filtra por categoría, precio u ocasión.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+  <div data-header></div>
+
+  
+  <div class="catalog-header">
+    <div class="wrap">
+      <span class="eyebrow">Catálogo</span>
+      <h1 style="margin-bottom: 8px;">Ramos y creaciones florales</h1>
+      <p class="muted" style="max-width: 42rem;">
+        Flores artesanales en técnica limpia pipas, modeladas a mano para cada ocasión.
+        Filtra por categoría, precio u ocasión para encontrar el detalle ideal.
+      </p>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap" style="padding-bottom: 72px;">
+
+      
+      <form class="filters" id="filters" style="margin-top: 32px;" onsubmit="event.preventDefault();">
+        <div class="field">
+          <label for="q">Buscar ramo o flor</label>
+          <input id="q" name="q" type="search" placeholder="Girasol, rosas, gerberas..." autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="cat">Categoría</label>
+          <select id="cat" name="cat">
+            <option value="">Todas las categorías</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="price">Precio (COP)</label>
+          <select id="price" name="price">
+            <option value="">Cualquier precio</option>
+            <option value="under60">Hasta $60.000</option>
+            <option value="60to90">$60.000 – $90.000</option>
+            <option value="over90">Más de $90.000</option>
+            <option value="consultar">Consultar precio</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="occ">Ocasión</label>
+          <select id="occ" name="occ">
+            <option value="">Toda ocasión</option>
+          </select>
+        </div>
+      </form>
+
+      
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+        <p class="muted" id="count" style="margin:0; font-size: .9rem; font-weight: 600;"></p>
+        <button class="btn btn-ghost" type="button" id="clear-filters"
+                style="display:none; padding: 6px 10px; text-decoration: none; border: 1px solid var(--gold-soft); border-radius: var(--r-sm); font-size: .85rem;">
+          ✕ Limpiar filtros
+        </button>
+      </div>
+
+      
+      <div class="product-grid" id="grid"></div>
+
+      
+      <div id="empty-state" style="display:none; text-align:center; padding: 64px 24px; margin-top: 16px;">
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:60px; height:60px; background:var(--blush); border-radius:50%; margin-bottom:14px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--burgundy)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22v-8"/>
+            <path d="M12 14c0 0-4-2.5-4-6a4 4 0 0 1 8 0c0 3.5-4 6-4 6z"/>
+            <path d="M9.5 7C9.5 5.07 10.62 3.5 12 3.5s2.5 1.57 2.5 3.5"/>
+          </svg>
+        </div>
+        <h3 style="margin-bottom: 8px;">Sin resultados</h3>
+        <p class="muted" style="margin-bottom: 24px; max-width: 28rem; margin-inline: auto;">
+          No encontramos creaciones con esos filtros. Prueba con otras opciones.
+        </p>
+        <button class="btn btn-secondary" type="button" id="reset-btn">Ver todo el catálogo</button>
+      </div>
+
+    </div>
+  </main>
+
+  <div data-footer></div>
+
+  <script type="module">
+    import { CATEGORIES, OCCASIONS, getProducts } from "./js/store.js";
+    import { mountPublicChrome, productCard } from "./js/ui.js";
+
+    mountPublicChrome({ current: "catalogo" });
+
+    const qEl      = document.getElementById("q");
+    const catSel   = document.getElementById("cat");
+    const priceSel = document.getElementById("price");
+    const occSel   = document.getElementById("occ");
+    const grid     = document.getElementById("grid");
+    const countEl  = document.getElementById("count");
+    const empty    = document.getElementById("empty-state");
+    const clearBtn = document.getElementById("clear-filters");
+    const resetBtn = document.getElementById("reset-btn");
+
+    CATEGORIES.forEach(c => {
+      const o = document.createElement("option");
+      o.value = c; o.textContent = c;
+      catSel.append(o);
+    });
+
+    OCCASIONS.forEach(o => {
+      const opt = document.createElement("option");
+      opt.value = o; opt.textContent = o;
+      occSel.append(opt);
+    });
+
+    // Leer parámetro ?cat= de la URL
+    const catParam = new URLSearchParams(location.search).get("cat");
+    if (catParam && CATEGORIES.includes(catParam)) catSel.value = catParam;
+
+    const allProducts = await getProducts();
+
+    function render() {
+      const q   = qEl.value.trim().toLowerCase();
+      const cat = catSel.value;
+      const pr  = priceSel.value;
+      const occ = occSel.value;
+
+      let list = allProducts.filter(p => p.available !== false);
+
+      if (cat) list = list.filter(p => p.category === cat);
+      if (occ) list = list.filter(p => p.occasion === occ);
+      if (q)   list = list.filter(p =>
+        [p.name, p.description, p.flowers].some(f => (f||"").toLowerCase().includes(q))
+      );
+
+      if (pr === "consultar") list = list.filter(p => p.price == null || p.price === "");
+      else if (pr === "under60") list = list.filter(p => +p.price <= 60000 && p.price != null);
+      else if (pr === "60to90")  list = list.filter(p => +p.price > 60000 && +p.price <= 90000);
+      else if (pr === "over90")  list = list.filter(p => +p.price > 90000);
+
+      const n = list.length;
+      countEl.textContent = n === 0 ? "Sin resultados" :
+                            n === 1 ? "1 creación floral" :
+                            `${n} creaciones florales`;
+
+      const active = !!(q || cat || pr || occ);
+      clearBtn.style.display = active ? "inline-flex" : "none";
+
+      if (n > 0) {
+        grid.style.display = "grid";
+        empty.style.display = "none";
+        grid.innerHTML = list.map(p => productCard(p)).join("");
+      } else {
+        grid.style.display = "none";
+        empty.style.display = "block";
+      }
+    }
+
+    function reset() {
+      qEl.value = catSel.value = priceSel.value = occSel.value = "";
+      render();
+    }
+
+    document.getElementById("filters").addEventListener("input", render);
+    document.getElementById("filters").addEventListener("change", render);
+    clearBtn.addEventListener("click", reset);
+    resetBtn.addEventListener("click", reset);
+
+    render();
+  </script>
+</body>
+</html>

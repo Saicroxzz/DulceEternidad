@@ -1,0 +1,11 @@
+{
+  "name": "dulce-eternidad",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes serve . -p 5173",
+    "start": "npx --yes serve . -p 5173",
+    "build": "echo 'Sitio estático preparado para Vercel'"
+  }
+}

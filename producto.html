@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalle de producto - Dulce Eternidad</title>
+  <meta name="description" content="Detalle de ramo floral hecho a mano en técnica limpia pipas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+  <div data-header></div>
+
+  <main class="wrap" id="main-content" style="padding-top: 28px;"></main>
+
+  <div data-footer></div>
+
+  <script type="module">
+    import { getProduct, getProducts, formatPrice, whatsappUrl, instagramUrl, productImage } from "./js/store.js";
+    import { mountPublicChrome, productCard, escapeHtml } from "./js/ui.js";
+
+    mountPublicChrome({ current: "catalogo" });
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const product = await getProduct(id);
+    const mainEl = document.getElementById("main-content");
+
+    if (!product) {
+      document.title = "Producto no encontrado - Dulce Eternidad";
+      mainEl.innerHTML = `
+        <div class="card" style="text-align: center; padding: 48px 24px; margin: 40px auto; max-width: 580px; border: 1px solid var(--gold-soft);">
+          <h1 style="font-size: 1.8rem; margin-bottom: 8px;">Producto no encontrado</h1>
+          <p class="muted" style="margin-bottom: 24px; font-size: 0.95rem;">El ramo que buscas no existe o fue retirado del catálogo.</p>
+          <a class="btn btn-primary" href="./catalogo.html">Explorar catálogo completo</a>
+        </div>
+      `;
+    } else {
+      if (!id && product.id) {
+        history.replaceState(null, "", "./producto.html?id=" + encodeURIComponent(product.id));
+      }
+
+      document.title = `${product.name} - Dulce Eternidad`;
+
+      const images = product.images && product.images.length > 0 ? product.images : ["./assets/placeholder.svg"];
+      const formattedPrice = formatPrice(product.price);
+      const isAvailable = product.available !== false;
+      const statusBadge = isAvailable
+        ? `<span class="badge badge-ok">Disponible</span>`
+        : `<span class="badge badge-off">Agotado</span>`;
+
+      const waLink = whatsappUrl(null, product);
+
+      const allProducts = await getProducts();
+      let related = allProducts.filter((p) => p.id !== product.id && p.category === product.category);
+      if (related.length < 3) {
+        const others = allProducts.filter((p) => p.id !== product.id && p.category !== product.category);
+        related = related.concat(others).slice(0, 3);
+      } else {
+        related = related.slice(0, 3);
+      }
+
+      mainEl.innerHTML = `
+        <nav class="breadcrumbs" aria-label="Ruta de navegación">
+          <a href="./index.html">Inicio</a>
+          <span>/</span>
+          <a href="./catalogo.html">Catálogo</a>
+          <span>/</span>
+          <a href="./catalogo.html?cat=${encodeURIComponent(product.category)}">${escapeHtml(product.category)}</a>
+          <span>/</span>
+          <span aria-current="page">${escapeHtml(product.name)}</span>
+        </nav>
+
+        <article class="detail">
+          <div>
+            <div class="gallery-main" id="gallery-container">
+              <img id="main-photo" src="${escapeHtml(images[0])}" alt="${escapeHtml(product.name)}">
+            </div>
+            ${
+              images.length > 1
+                ? `
+                  <div class="thumbs" id="thumbs">
+                    ${images
+                      .map(
+                        (img, idx) => `
+                          <button type="button" class="${idx === 0 ? "active" : ""}" data-src="${escapeHtml(img)}" aria-label="Ver imagen ${idx + 1}">
+                            <img src="${escapeHtml(img)}" alt="">
+                          </button>
+                        `
+                      )
+                      .join("")}
+                  </div>
+                `
+                : ""
+            }
+          </div>
+
+          <div class="detail-info">
+            <span class="badge badge-cat" style="margin-bottom: 8px;">${escapeHtml(product.category)}</span>
+            <h1>${escapeHtml(product.name)}</h1>
+            <div class="detail-price">${formattedPrice}</div>
+            <div style="margin-bottom: 16px;">${statusBadge}</div>
+
+            <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px;">
+              ${escapeHtml(product.description || "Creación floral artesanal elaborada a mano con técnica limpia pipas.")}
+            </p>
+
+            <div class="specs-list">
+              <div class="specs-item">
+                <strong>Flores incluidas:</strong>
+                <span>${escapeHtml(product.flowers || "Flores en limpia pipas")}</span>
+              </div>
+              <div class="specs-item">
+                <strong>Tamaño:</strong>
+                <span>${escapeHtml(product.size || "Mediano")}</span>
+              </div>
+              <div class="specs-item">
+                <strong>Ocasión recomendada:</strong>
+                <span>${escapeHtml(product.occasion || "Toda ocasión")}</span>
+              </div>
+            </div>
+
+            <div class="detail-actions">
+              ${
+                waLink
+                  ? `<a class="btn btn-primary" href="${waLink}" target="_blank" rel="noopener noreferrer" id="wa-cta" style="gap: 8px;">
+                      <svg viewBox="0 0 24 24" style="width: 17px; height: 17px; fill: currentColor;"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.78 14.16c-.24.68-1.39 1.3-1.92 1.38-.5.08-1.14.11-3.69-.94-2.18-.89-3.58-3.13-3.69-3.28-.11-.15-.88-1.17-.88-2.24s.56-1.59.76-1.81c.2-.22.44-.28.59-.28.15 0 .3 0 .43.01.14.01.32-.05.5.38.19.45.64 1.57.7 1.69.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.5.14.25.62 1.02 1.33 1.65.91.81 1.68 1.06 1.92 1.18.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.41.66 1.65.78.24.12.4.18.46.28.06.1.06.58-.18 1.26z"/></svg>
+                      Pedir por WhatsApp
+                    </a>`
+                  : `<button class="btn btn-primary" type="button" id="wa-pending-cta" title="Número no configurado">Pedir por WhatsApp</button>`
+              }
+              <a class="btn btn-secondary" href="${instagramUrl()}" target="_blank" rel="noopener noreferrer">
+                Seguir en Instagram
+              </a>
+            </div>
+
+            ${
+              !waLink
+                ? `<p class="muted" style="font-size: 0.82rem; margin-top: 10px;">
+                    * El número de WhatsApp oficial se puede configurar desde el panel de administración.
+                   </p>`
+                : ""
+            }
+          </div>
+        </article>
+
+        <section class="section" style="border-top: 1px solid var(--gold-soft); margin-top: 40px; padding-top: 32px;">
+          <div class="section-head">
+            <p class="eyebrow">Complementos</p>
+            <h2>También te puede gustar</h2>
+            <p class="muted">Otras creaciones artesanales hechas con paciencia y detalle.</p>
+          </div>
+          <div class="grid-3">
+            ${related.map((item) => productCard(item)).join("")}
+          </div>
+        </section>
+      `;
+
+      const thumbsContainer = document.getElementById("thumbs");
+      const mainPhoto = document.getElementById("main-photo");
+      thumbsContainer?.addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-src]");
+        if (!btn) return;
+        mainPhoto.src = btn.dataset.src;
+        thumbsContainer.querySelectorAll("button").forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+
+      document.getElementById("wa-pending-cta")?.addEventListener("click", () => {
+        alert("El número de WhatsApp aún no ha sido configurado en el panel de administración. Puedes contactarnos por Instagram en @dulce.eternidad7");
+      });
+    }
+  </script>
+</body>
+</html>

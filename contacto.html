@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto — Dulce Eternidad</title>
+  <meta name="description" content="Contáctanos para encargar tu ramo artesanal o cotizar decoraciones florales. Escribenos por Instagram o WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css">
+  <style>
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--gold-soft);
+      border-radius: var(--r-lg);
+      padding: 40px 36px;
+      box-shadow: none;
+    }
+
+    .contact-card h2 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div data-header></div>
+
+  
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Contacto</span>
+      <h1>Hablemos de tu ramo</h1>
+      <p class="muted" style="font-size: 1.05rem; max-width: 36rem; margin-top: 10px;">
+        Cada ramo se elabora sobre pedido. Escríbenos para consultar disponibilidad,
+        personalizar colores o coordinar la entrega.
+      </p>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrap content-grid" style="align-items: start;">
+
+      
+      <div class="contact-card">
+        <h2>Canales de atención</h2>
+        <p class="muted" style="margin-bottom: 28px; font-size: .95rem;">
+          No usamos formularios — preferimos la conversación directa. Puedes escribirnos
+          por cualquiera de estos canales:
+        </p>
+
+        <div class="contact-channel">
+          <span class="eyebrow">Instagram</span>
+          <p style="margin: 0; font-size: 1.05rem;">
+            <a href="https://instagram.com/dulce.eternidad7"
+               target="_blank" rel="noopener noreferrer"
+               style="font-weight: 700; color: var(--burgundy);">
+              @dulce.eternidad7
+            </a>
+          </p>
+          <small class="muted">Mensaje directo para ver portafolio y hacer tu pedido.</small>
+        </div>
+
+        <div id="wa-block" class="contact-channel"></div>
+
+        <p class="serif" style="font-size: 1.1rem; color: var(--rose); font-style: italic; margin-top: 24px; margin-bottom: 0;">
+          "Conoce más de nuestros ramos y sé parte de esta dulce historia."
+        </p>
+      </div>
+
+      
+      <div style="display: grid; place-items: center;">
+        <img class="ig-card-img"
+             src="./img/Tarjeta.jpeg"
+             alt="Tarjeta de presentación de Dulce Eternidad con código QR">
+      </div>
+
+    </div>
+  </main>
+
+  <div data-footer></div>
+
+  <script type="module">
+    import { mountPublicChrome, escapeHtml } from "./js/ui.js";
+    import { getSettings, whatsappUrl } from "./js/store.js";
+
+    mountPublicChrome({ current: "contacto" });
+
+    await getSettings();
+    const waBlock = document.getElementById("wa-block");
+    const wa = whatsappUrl("Hola, me gustaría consultar por un ramo artesanal.");
+
+    if (waBlock) {
+      waBlock.innerHTML = wa
+        ? `<span class="eyebrow">WhatsApp</span>
+           <p style="margin: 0 0 6px;">
+             <a href="${escapeHtml(wa)}" target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary" style="margin-top: 8px;">
+               Enviar mensaje por WhatsApp
+             </a>
+           </p>`
+        : `<span class="eyebrow">WhatsApp</span>
+           <p class="muted" style="margin: 0; font-size: .9rem;">
+             El número se activa al guardarlo en el panel de administración.
+           </p>`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de Control — Dulce Eternidad</title>
+  <meta name="description" content="Panel de administración y personalización de catálogo y diseño para Dulce Eternidad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+
+    <aside class="sidebar" id="sidebar" aria-label="Menú del panel de administración">
+      <div class="side-brand">
+        <img src="./img/Logo.jpeg" alt="Logo Dulce Eternidad">
+        <div>
+          <strong>Dulce Eternidad</strong>
+          <span style="display:block; font-size:0.72rem; color: var(--gold); letter-spacing:0.06em; text-transform:uppercase;">Panel de Control</span>
+        </div>
+      </div>
+
+      <nav>
+        <div class="side-group">
+          <span class="side-group-title">Tienda y Catálogo</span>
+          <a href="#resumen" data-panel="resumen" aria-current="page">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+            Resumen
+          </a>
+          <a href="#productos" data-panel="productos">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Productos
+          </a>
+          <a href="#consultas" data-panel="consultas">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Pedidos & WhatsApp
+          </a>
+          <a href="#sec-envios" data-panel="sec-envios">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Taller & Envíos
+          </a>
+          <a href="#sec-plantillas-wa" data-panel="sec-plantillas-wa">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Plantillas WhatsApp
+          </a>
+        </div>
+
+        <div class="side-group">
+          <span class="side-group-title">Editor de Secciones</span>
+          <a href="#sec-hero" data-panel="sec-hero">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Banner Principal (Hero)
+          </a>
+          <a href="#sec-marquee" data-panel="sec-marquee">
+            <svg viewBox="0 0 24 24"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            Cinta de Anuncios
+          </a>
+          <a href="#sec-promociones" data-panel="sec-promociones">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Colección & Promociones
+          </a>
+          <a href="#sec-historia" data-panel="sec-historia">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            Historia y Valores
+          </a>
+          <a href="#sec-menu" data-panel="sec-menu">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            Menú y Cabecera
+          </a>
+          <a href="#sec-footer" data-panel="sec-footer">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Pie de Página (Footer)
+          </a>
+          <a href="#sec-estilo" data-panel="sec-estilo">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 0 0 0 14v6"/></svg>
+            Apariencia y Colores
+          </a>
+        </div>
+
+        <div class="side-group">
+          <span class="side-group-title">Sistema</span>
+          <a href="#configuracion" data-panel="configuracion">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            Base de Datos (Supabase)
+          </a>
+        </div>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="user-chip">
+          <div class="user-avatar" id="admin-user-avatar">DE</div>
+          <div class="user-info">
+            <div class="user-email" id="admin-user-email">Administrador</div>
+            <div class="user-role" id="admin-user-role">Sesión activa</div>
+          </div>
+        </div>
+        <button class="linkish-logout linkish" type="button" id="logout-btn">
+          <svg viewBox="0 0 24 24" style="width:15px; height:15px; stroke:currentColor; stroke-width:2; fill:none;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Cerrar sesión
+        </button>
+      </div>
+    </aside>
+
+    <div class="admin-main">
+      <header class="admin-top">
+        <div class="admin-top-left">
+          <button class="menu-btn" type="button" data-side-toggle aria-controls="sidebar" aria-label="Abrir menú de administración">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <span class="admin-title" id="page-title">Resumen del catálogo</span>
+        </div>
+
+        <div class="admin-top-actions">
+          <span id="db-status-badge" class="badge" style="font-size: 0.78rem; text-transform: none; letter-spacing: normal;">Verificando...</span>
+          <a href="./index.html" class="btn btn-secondary" style="min-height: 38px; padding: 6px 14px; font-size: 0.88rem;" target="_blank">
+            Ver tienda ↗
+          </a>
+        </div>
+      </header>
+
+      <div class="admin-content wrap" style="max-width: 1140px;">
+
+        <section class="panel active" id="panel-resumen">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Resumen del catálogo</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Estado actual de inventario y creaciones florales artesanales.</p>
+            </div>
+            <button class="btn btn-primary" type="button" id="btn-quick-new-product">
+              + Nuevo ramo
+            </button>
+          </div>
+
+          <div class="stats">
+            <div class="stat-card">
+              <div class="stat-label">Total ramos</div>
+              <div class="stat-value" id="stat-total">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Disponibles</div>
+              <div class="stat-value" id="stat-active" style="color: var(--sage);">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Agotados</div>
+              <div class="stat-value" id="stat-out" style="color: var(--rose);">0</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Categorías</div>
+              <div class="stat-value" id="stat-cats">4</div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 24px; margin-top: 24px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <h2 style="font-size: 1.25rem; margin: 0;">Creaciones recientes en catálogo</h2>
+              <a href="#productos" data-panel="productos" class="btn btn-secondary" style="font-size: 0.82rem; padding: 6px 12px;">Ver todos los productos</a>
+            </div>
+            <div id="recent-list" style="display: grid; gap: 10px;"></div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-productos">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Gestión de Productos</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Crea, edita fotos y modifica precios o disponibilidad de tus ramos.</p>
+            </div>
+            <button class="btn btn-primary" type="button" id="btn-new-product">
+              + Nuevo producto
+            </button>
+          </div>
+
+          <div class="admin-filters">
+            <div class="field">
+              <label for="admin-search">Buscar por nombre o tipo de flor</label>
+              <input id="admin-search" type="search" placeholder="Ej. Girasol, Amor Radiante, Gerberas...">
+            </div>
+            <div class="field">
+              <label for="admin-cat-filter">Filtrar por categoría</label>
+              <select id="admin-cat-filter">
+                <option value="">Todas las categorías</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 74px;">Foto</th>
+                  <th>Nombre del ramo</th>
+                  <th>Categoría</th>
+                  <th>Precio (COP)</th>
+                  <th>Estado</th>
+                  <th style="text-align: right;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="products-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-consultas">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Recepción de Pedidos & WhatsApp</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Configura el número y formato con el acortador oficial wa.me, validación y sanitización.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <h2>Canal directo de ventas</h2>
+              <p class="muted" style="font-size: 0.88rem; margin-bottom: 20px;">
+                Los clientes hacen clic en <strong>"Pedir por WhatsApp"</strong> en cada ramo. El sistema limpia emojis y caracteres no permitidos antes de enviar.
+              </p>
+
+              <form id="wa-config-form">
+                <div class="field">
+                  <label for="cfg-wa-num">Número de WhatsApp (con código de país sin +)</label>
+                  <input id="cfg-wa-num" type="tel" inputmode="numeric" placeholder="Ej: 573001234567">
+                  <small class="muted">Para Colombia antepón 57 (ejemplo: 573123456789). Se formatea automáticamente.</small>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="cfg-wa-default-msg">Mensaje predeterminado de cotización</label>
+                  <textarea id="cfg-wa-default-msg" rows="3" placeholder="Hola, me gustaría información sobre sus creaciones florales."></textarea>
+                  <small class="muted">Se usará como saludo cuando el cliente consulte desde la página de inicio o contacto.</small>
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar cambios de WhatsApp</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Vista Previa del Enlace Oficial</span>
+                <span class="badge badge-ok">wa.me</span>
+              </div>
+              <div class="preview-box">
+                <p style="margin: 0 0 8px; font-weight: 700; color: var(--burgundy);">Enlace generado:</p>
+                <p id="wa-preview-text" class="muted" style="font-size: 0.85rem; margin-bottom: 14px; word-break: break-all;">
+                  https://wa.me/...
+                </p>
+                <div id="wa-clean-preview-box" style="padding: 10px; background: var(--blush); border-radius: var(--r-sm); margin-bottom: 14px; font-size: 0.82rem;">
+                  <strong>Mensaje sanitizado:</strong>
+                  <div id="wa-clean-preview-msg" style="margin-top: 4px; color: var(--text);">Hola...</div>
+                </div>
+                <a href="#" target="_blank" id="wa-preview-test-btn" class="btn btn-secondary" style="width: 100%; justify-content: center; font-size: 0.88rem; gap: 8px;">
+                  Probar enlace en WhatsApp ↗
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-envios">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Taller, Horarios & Cobertura de Envíos</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Políticas de entrega, tiempos de modelado artesanal y horarios de atención al cliente.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <form id="envios-config-form">
+                <div class="field">
+                  <label for="f-workshop-hours">Horarios de atención del taller</label>
+                  <input id="f-workshop-hours" placeholder="Lunes a Sábado: 8:00 AM - 6:00 PM">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-workshop-prep">Tiempo de elaboración artesanal</label>
+                  <input id="f-workshop-prep" placeholder="2 a 3 días hábiles de anticipación">
+                  <small class="muted">Informa a tus clientes el tiempo requerido para moldear cada flor a mano.</small>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-delivery-coverage">Cobertura de envíos y logística</label>
+                  <textarea id="f-delivery-coverage" rows="3" placeholder="Envíos a todo el país y entregas locales programadas con empaque protector floral."></textarea>
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar políticas de taller</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Resumen de Operación</span>
+              </div>
+              <div class="preview-box" style="display: grid; gap: 12px; font-size: 0.85rem;">
+                <div>
+                  <strong style="color: var(--burgundy); display: block;">Horario:</strong>
+                  <span id="prev-workshop-hours" class="muted">Lunes a Sábado: 8:00 AM - 6:00 PM</span>
+                </div>
+                <div>
+                  <strong style="color: var(--burgundy); display: block;">Confección:</strong>
+                  <span id="prev-workshop-prep" class="muted">2 a 3 días de anticipación</span>
+                </div>
+                <div>
+                  <strong style="color: var(--burgundy); display: block;">Cobertura:</strong>
+                  <span id="prev-delivery-cov" class="muted">Envíos nacionales y locales</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-plantillas-wa">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Plantillas Rápidas de WhatsApp</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Mensajes prediseñados listos para copiar o enviar directamente a tus clientes.</p>
+            </div>
+          </div>
+
+          <div class="grid-autofit">
+            <div class="card" style="padding: 20px;">
+              <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--burgundy);">Cotización Ramo Personalizado</h3>
+              <p class="muted" style="font-size: 0.86rem; line-height: 1.5;">
+                "Hola! Me encantaría cotizar un ramo artesanal personalizado en limpia pipas con mis flores y colores favoritos."
+              </p>
+              <a href="#" target="_blank" class="btn btn-secondary btn-wa-template" data-tpl="cotizacion" style="width: 100%; justify-content: center; font-size: 0.82rem; margin-top: 12px;">
+                Probar en WhatsApp ↗
+              </a>
+            </div>
+
+            <div class="card" style="padding: 20px;">
+              <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--burgundy);">Pedido para Ocasión Especial</h3>
+              <p class="muted" style="font-size: 0.86rem; line-height: 1.5;">
+                "Hola Dulce Eternidad, tengo una fecha especial próxima y quisiera encargar un ramo que no se marchite para regalo."
+              </p>
+              <a href="#" target="_blank" class="btn btn-secondary btn-wa-template" data-tpl="ocasion" style="width: 100%; justify-content: center; font-size: 0.82rem; margin-top: 12px;">
+                Probar en WhatsApp ↗
+              </a>
+            </div>
+
+            <div class="card" style="padding: 20px;">
+              <h3 style="margin-top: 0; font-size: 1.1rem; color: var(--burgundy);">Consulta de Envíos y Tiempos</h3>
+              <p class="muted" style="font-size: 0.86rem; line-height: 1.5;">
+                "Hola, me gustaría saber los tiempos de entrega y el costo de envío a mi ciudad para un ramo artesanal."
+              </p>
+              <a href="#" target="_blank" class="btn btn-secondary btn-wa-template" data-tpl="envio" style="width: 100%; justify-content: center; font-size: 0.82rem; margin-top: 12px;">
+                Probar en WhatsApp ↗
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-hero">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Banner Principal (Hero)</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Personaliza la portada que da la bienvenida a tus visitantes en la página de inicio.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <form id="hero-config-form">
+                <div class="field">
+                  <label for="f-hero-eyebrow">Etiqueta superior (Eyebrow)</label>
+                  <input id="f-hero-eyebrow" placeholder="Flores artesanales · Limpia pipas">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-hero-title">Título principal</label>
+                  <input id="f-hero-title" placeholder="El arte de regalar _amor eterno_">
+                  <small class="muted">Consejo: Puedes envolver palabras con guiones bajos (ej. _amor eterno_) para mostrarlas en tipografía cursiva destacada.</small>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-hero-subtitle">Subtítulo / Descripción</label>
+                  <textarea id="f-hero-subtitle" rows="3" placeholder="Cada pétalo modelado a mano, uno a uno..."></textarea>
+                </div>
+
+                <div class="grid-2-col field-spaced">
+                  <div class="field">
+                    <label for="f-hero-btn1-text">Texto botón principal</label>
+                    <input id="f-hero-btn1-text" placeholder="Ver catálogo">
+                  </div>
+                  <div class="field">
+                    <label for="f-hero-btn1-link">Enlace botón principal</label>
+                    <input id="f-hero-btn1-link" placeholder="./catalogo.html">
+                  </div>
+                </div>
+
+                <div class="grid-2-col field-spaced">
+                  <div class="field">
+                    <label for="f-hero-btn2-text">Texto botón secundario</label>
+                    <input id="f-hero-btn2-text" placeholder="Nuestra historia">
+                  </div>
+                  <div class="field">
+                    <label for="f-hero-btn2-link">Enlace botón secundario</label>
+                    <input id="f-hero-btn2-link" placeholder="./nosotros.html">
+                  </div>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-hero-image">Fotografía del Banner (Ruta local o URL)</label>
+                  <div style="display: flex; gap: 8px;">
+                    <input id="f-hero-image" type="text" style="flex: 1;" placeholder="./img/Ramo de flores amarillas artesanales.png">
+                    <button type="button" class="btn btn-secondary" id="btn-hero-reset-img" style="white-space: nowrap; font-size: 0.82rem; padding: 8px 12px;">
+                      Oficial
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar banner principal</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Vista Previa del Banner</span>
+              </div>
+              <div style="position: relative; border-radius: var(--r-md); overflow: hidden; background: #1c0912; color: #fff; padding: 28px 20px;">
+                <div id="hero-prev-bg" style="position: absolute; inset: 0; background-size: cover; background-position: right center; opacity: 0.4;"></div>
+                <div style="position: relative; z-index: 2;">
+                  <div id="hero-prev-eyebrow" style="font-size: 0.65rem; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">
+                    Flores artesanales
+                  </div>
+                  <div id="hero-prev-title" style="font-family: 'EB Garamond', serif; font-size: 1.55rem; line-height: 1.15; margin-bottom: 8px;">
+                    El arte de regalar <em>amor eterno</em>
+                  </div>
+                  <div id="hero-prev-sub" style="font-size: 0.82rem; line-height: 1.4; color: rgba(255,255,255,0.85); margin-bottom: 14px;">
+                    Cada pétalo modelado a mano...
+                  </div>
+                  <div style="display: flex; gap: 8px;">
+                    <span id="hero-prev-b1" class="btn btn-primary" style="min-height: 32px; padding: 4px 10px; font-size: 0.75rem; pointer-events: none;">Ver catálogo</span>
+                    <span id="hero-prev-b2" class="btn btn-secondary" style="min-height: 32px; padding: 4px 10px; font-size: 0.75rem; color:#fff; border-color: rgba(255,255,255,0.5); pointer-events: none;">Nuestra historia</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-marquee">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Cinta de Anuncios Infinitos</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Edita las frases que se desplazan de manera continua debajo del banner principal.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <form id="marquee-config-form">
+                <div class="field">
+                  <label for="f-marquee-raw">Frases de la cinta (una por línea o separadas por comas)</label>
+                  <textarea id="f-marquee-raw" rows="7" placeholder="100% Hecho a mano&#10;Flores que no se marchitan&#10;Técnica Limpia Pipas&#10;Ramos personalizados&#10;Envíos a todo el país"></textarea>
+                  <small class="muted">Cada línea se convertirá en un elemento de la animación continua.</small>
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar cinta de anuncios</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Vista Previa de la Cinta</span>
+              </div>
+              <div style="background: var(--burgundy); color: #fff; padding: 12px; border-radius: var(--r-sm); overflow: hidden; white-space: nowrap;">
+                <div id="marquee-preview-content" style="display: flex; gap: 16px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">
+                  <span>100% Hecho a mano</span> · <span>Flores que no se marchitan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-promociones">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Colección Especial & Promociones</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Sección configurable que puedes activar/desactivar en la página de inicio para destacar ofertas, más vendidos o novedades.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <form id="promo-config-form">
+                <div style="margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--gold-subtle);">
+                  <label class="toggle-label" style="font-size: 0.95rem; font-weight: 700;">
+                    <input id="f-promo-enabled" type="checkbox" checked>
+                    <span>Mostrar esta sección en la página de inicio</span>
+                  </label>
+                </div>
+
+                <div class="field">
+                  <label for="f-promo-type">Tipo de colección a mostrar</label>
+                  <select id="f-promo-type">
+                    <option value="promociones">Promociones y Descuentos Especiales</option>
+                    <option value="mas_vendidos">Los Más Vendidos (Best Sellers)</option>
+                    <option value="mas_recientes">Últimas Creaciones (Más Recientes)</option>
+                  </select>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-promo-badge">Texto del cintillo promocional</label>
+                  <input id="f-promo-badge" placeholder="Edición Limitada · Confección Artesanal">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-promo-eyebrow">Etiqueta superior (Eyebrow)</label>
+                  <input id="f-promo-eyebrow" placeholder="Colección Especial">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-promo-title">Título de la sección</label>
+                  <input id="f-promo-title" placeholder="Creaciones en Promoción & Más Elegidas">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-promo-subtitle">Subtítulo / Descripción</label>
+                  <textarea id="f-promo-subtitle" rows="2" placeholder="Aprovecha nuestras flores artesanales modeladas en limpia pipas..."></textarea>
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar colección y promociones</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Vista Previa de la Sección</span>
+                <span id="promo-prev-status" class="badge badge-ok">Activo</span>
+              </div>
+              <div class="preview-box" style="text-align: center;">
+                <span id="prev-promo-badge" class="badge" style="background: var(--blush); color: var(--burgundy); margin-bottom: 8px; font-size: 0.7rem;">Edición Limitada</span>
+                <div id="prev-promo-eyebrow" class="eyebrow" style="margin-bottom: 4px;">Colección Especial</div>
+                <h3 id="prev-promo-title" style="color: var(--burgundy); font-size: 1.2rem; margin: 0 0 6px;">Creaciones en Promoción</h3>
+                <p id="prev-promo-sub" class="muted" style="font-size: 0.82rem; margin: 0 0 12px;">Flores artesanales con detalles especiales...</p>
+                <div style="padding: 10px; background: var(--cream); border-radius: var(--r-sm); border: 1px solid var(--gold-soft); font-size: 0.78rem;">
+                  Filtro activo: <strong id="prev-promo-filter" style="color: var(--burgundy);">Promociones</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-historia">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Sección "Nuestra Historia" & Estadísticas</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">El relato artesanal, las insignias de valor y la invitación a seguir la cuenta de Instagram.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <form id="historia-config-form">
+                <div class="field">
+                  <label for="f-hist-eyebrow">Etiqueta superior</label>
+                  <input id="f-hist-eyebrow" placeholder="Nuestra historia">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-hist-title">Título de la sección</label>
+                  <input id="f-hist-title" placeholder="Hecho con calma y con las manos">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-hist-p1">Primer párrafo del relato</label>
+                  <textarea id="f-hist-p1" rows="3" placeholder="Dulce Eternidad es un taller floral dedicado a la creación..."></textarea>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-hist-p2">Segundo párrafo del relato</label>
+                  <textarea id="f-hist-p2" rows="3" placeholder="No usamos flores de plástico desechables ni imitaciones..."></textarea>
+                </div>
+
+                <h3 style="font-size: 1.05rem; margin-top: 24px; margin-bottom: 12px;">Tres Estadísticas de Valor</h3>
+                <div class="grid-3-col">
+                  <div class="field">
+                    <label for="f-stat1-n">Dato 1</label>
+                    <input id="f-stat1-n" placeholder="100%">
+                    <input id="f-stat1-l" placeholder="Hecho a mano" style="margin-top: 4px;">
+                  </div>
+                  <div class="field">
+                    <label for="f-stat2-n">Dato 2</label>
+                    <input id="f-stat2-n" placeholder="∞">
+                    <input id="f-stat2-l" placeholder="No se marchita" style="margin-top: 4px;">
+                  </div>
+                  <div class="field">
+                    <label for="f-stat3-n">Dato 3</label>
+                    <input id="f-stat3-n" placeholder="1×1">
+                    <input id="f-stat3-l" placeholder="Pieza única" style="margin-top: 4px;">
+                  </div>
+                </div>
+
+                <h3 style="font-size: 1.05rem; margin-top: 24px; margin-bottom: 12px;">Tarjeta de Instagram (@dulce.eternidad7)</h3>
+                <div class="field">
+                  <label for="f-ig-quote">Frase inspiracional en la tarjeta de Instagram</label>
+                  <input id="f-ig-quote" placeholder='"Conoce más de nuestros ramos, nuestras creaciones..."'>
+                </div>
+                <div class="field field-spaced">
+                  <label for="f-ig-desc">Descripción complementaria</label>
+                  <textarea id="f-ig-desc" rows="2" placeholder="Publicamos nuevos diseños, encargos personalizados..."></textarea>
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar historia y valores</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Vista Previa de Historia</span>
+              </div>
+              <div class="preview-box">
+                <span id="prev-hist-eb" class="eyebrow">Nuestra historia</span>
+                <h3 id="prev-hist-title" style="font-size: 1.2rem; margin: 4px 0 10px; color: var(--burgundy);">Hecho con calma</h3>
+                <p id="prev-hist-p" class="muted" style="font-size: 0.85rem; line-height: 1.5; margin-bottom: 14px;">
+                  En Dulce Eternidad transformamos materiales nobles...
+                </p>
+                <div style="display: flex; gap: 8px; border-top: 1px solid var(--gold-soft); padding-top: 10px;">
+                  <div style="flex: 1; text-align: center;">
+                    <strong id="prev-stat1-n" style="color: var(--burgundy); font-family: serif; font-size: 1.2rem;">100%</strong>
+                    <div id="prev-stat1-l" class="muted" style="font-size: 0.65rem;">Hecho a mano</div>
+                  </div>
+                  <div style="flex: 1; text-align: center;">
+                    <strong id="prev-stat2-n" style="color: var(--burgundy); font-family: serif; font-size: 1.2rem;">∞</strong>
+                    <div id="prev-stat2-l" class="muted" style="font-size: 0.65rem;">No se marchita</div>
+                  </div>
+                  <div style="flex: 1; text-align: center;">
+                    <strong id="prev-stat3-n" style="color: var(--burgundy); font-family: serif; font-size: 1.2rem;">1×1</strong>
+                    <div id="prev-stat3-l" class="muted" style="font-size: 0.65rem;">Pieza única</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-menu">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Menú de Navegación y Cabecera</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Configura el nombre de marca y la identidad que se muestra en la parte superior de cada página.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <form id="menu-config-form">
+                <div class="field">
+                  <label for="f-brand-name">Nombre de marca</label>
+                  <input id="f-brand-name" placeholder="Dulce Eternidad">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-brand-sub">Subtítulo de marca</label>
+                  <input id="f-brand-sub" placeholder="Boutique floral">
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar cabecera</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Vista Previa de la Cabecera</span>
+              </div>
+              <div class="preview-box" style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <img src="./img/Logo.jpeg" alt="" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold-soft);">
+                  <div>
+                    <strong id="prev-brand-name" style="font-family: serif; font-size: 1.1rem; color: var(--burgundy); display: block;">Dulce Eternidad</strong>
+                    <span id="prev-brand-sub" style="font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;">Boutique floral</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-footer">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Pie de Página (Footer)</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">El cierre de la tienda con tu lema, redes sociales y créditos de autor.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <form id="footer-config-form">
+                <div class="field">
+                  <label for="f-footer-quote">Lema o frase principal del footer</label>
+                  <input id="f-footer-quote" placeholder="El arte de regalar amor eterno">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-footer-note">Nota de contacto</label>
+                  <input id="f-footer-note" placeholder="Flores artesanales en limpia pipas.">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-footer-ig">Usuario de Instagram (sin @)</label>
+                  <input id="f-footer-ig" placeholder="dulce.eternidad7">
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-footer-copy">Texto de Copyright</label>
+                  <input id="f-footer-copy" placeholder="Dulce Eternidad. Flores artesanales hechas con calma y con las manos.">
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar pie de página</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Vista Previa del Footer</span>
+              </div>
+              <div class="preview-box" style="background: var(--cream); text-align: center; padding: 22px 16px;">
+                <p id="prev-footer-quote" style="font-family: serif; font-style: italic; font-size: 1.1rem; color: var(--burgundy); margin-bottom: 8px;">
+                  "El arte de regalar amor eterno"
+                </p>
+                <div style="font-size: 0.82rem; color: var(--muted); margin-bottom: 12px;">
+                  <span id="prev-footer-note">Flores artesanales en limpia pipas.</span>
+                  <br>
+                  <span id="prev-footer-ig" style="color: var(--burgundy); font-weight: 600;">@dulce.eternidad7</span>
+                </div>
+                <div id="prev-footer-copy" style="font-size: 0.72rem; color: rgba(61,26,37,0.6); border-top: 1px solid var(--gold-soft); padding-top: 10px;">
+                  © 2026 Dulce Eternidad.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-sec-estilo">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Apariencia & Paleta de Color</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Ajusta la paleta de colores de marca y el estilo tipográfico de la tienda.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <form id="estilo-config-form">
+                <div class="grid-2-col">
+                  <div class="field">
+                    <label for="f-color-primary">Color Primario (Borgoña)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <input id="f-color-primary" type="color" value="#8B2F4B" style="width: 48px; height: 42px; padding: 2px; cursor: pointer; border: 1px solid var(--gold-soft); border-radius: var(--r-sm);">
+                      <input id="f-color-primary-hex" type="text" value="#8B2F4B" style="flex: 1;" placeholder="#8B2F4B">
+                    </div>
+                  </div>
+
+                  <div class="field">
+                    <label for="f-color-accent">Color de Acento (Oro suave)</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                      <input id="f-color-accent" type="color" value="#C9A25B" style="width: 48px; height: 42px; padding: 2px; cursor: pointer; border: 1px solid var(--gold-soft); border-radius: var(--r-sm);">
+                      <input id="f-color-accent-hex" type="text" value="#C9A25B" style="flex: 1;" placeholder="#C9A25B">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-theme-bg">Color de fondo de la tienda</label>
+                  <select id="f-theme-bg">
+                    <option value="white">Blanco puro y despejado (#FFFFFF)</option>
+                    <option value="cream">Crema cálido artesanal (#FDF5EE)</option>
+                  </select>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="f-theme-font">Estilo tipográfico</label>
+                  <select id="f-theme-font">
+                    <option value="editorial">Clásico Editorial (EB Garamond serif + Manrope UI)</option>
+                    <option value="modern">Moderno Contemporáneo (Manrope sans en títulos y textos)</option>
+                  </select>
+                </div>
+
+                <div class="form-actions" style="margin-top: 24px;">
+                  <button class="btn btn-primary" type="submit">Guardar apariencia</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Muestra de Estilos</span>
+              </div>
+              <div id="style-preview-box" class="preview-box" style="text-align: center;">
+                <div id="prev-style-badge" style="display: inline-block; padding: 4px 10px; border-radius: 4px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; background: var(--blush); color: var(--burgundy); margin-bottom: 10px;">
+                  Muestra de Colección
+                </div>
+                <h3 id="prev-style-heading" style="font-family: 'EB Garamond', serif; font-size: 1.4rem; color: var(--burgundy); margin: 0 0 10px;">
+                  Flores con alma artesanal
+                </h3>
+                <p class="muted" style="font-size: 0.85rem; margin-bottom: 14px;">
+                  Así se visualizarán los contrastes, bordes y fuentes en toda la tienda.
+                </p>
+                <button type="button" class="btn btn-primary" id="prev-style-btn" style="min-height: 38px; padding: 6px 14px; font-size: 0.85rem; pointer-events: none;">
+                  Botón principal
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="panel-configuracion">
+          <div class="panel-toolbar">
+            <div>
+              <h1 style="font-size: 1.5rem; margin-bottom: 4px;">Base de Datos & Almacenamiento (Supabase)</h1>
+              <p class="muted" style="margin: 0; font-size: 0.9rem;">Conexión directa en la nube para productos, fotos en Supabase Storage y autenticación.</p>
+            </div>
+          </div>
+
+          <div class="section-editor-grid">
+            <div class="editor-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                <h2 style="font-size: 1.25rem; margin: 0;">Credenciales del Proyecto</h2>
+                <span id="sb-card-badge" class="badge">Verificando...</span>
+              </div>
+
+              <form id="supabase-config-form">
+                <div class="field">
+                  <label for="cfg-sb-url">Project URL</label>
+                  <input id="cfg-sb-url" type="url" placeholder="https://lwatxuxsyxzjmbvupqhq.supabase.co" autocomplete="off">
+                  <small class="muted">Disponible en Supabase: Project Settings → Data API → Project URL</small>
+                </div>
+
+                <div class="field field-spaced">
+                  <label for="cfg-sb-key">Anon Public API Key (Clave Publicable)</label>
+                  <input id="cfg-sb-key" type="password" placeholder="sb_publishable_..." autocomplete="off">
+                  <small class="muted">Disponible en Supabase: Project Settings → Data API → Project API Keys (anon public)</small>
+                </div>
+
+                <div id="sb-status-box" style="display: none; padding: 12px 14px; border-radius: var(--r-sm); margin-top: 16px; font-size: 0.88rem; line-height: 1.4;"></div>
+
+                <div class="form-actions" style="margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap;">
+                  <button class="btn btn-primary" type="submit" id="btn-save-sb">Probar y Guardar Conexión</button>
+                  <button class="btn btn-secondary" type="button" id="btn-disconnect-sb">Desconectar / Modo Local</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="editor-preview-card">
+              <div class="editor-preview-head">
+                <span>Diagnóstico del Sistema</span>
+              </div>
+              <div class="preview-box" style="display: grid; gap: 10px; font-size: 0.85rem;">
+                <div style="display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--gold-soft);">
+                  <span>Base de Datos Postgres:</span>
+                  <strong id="diag-db" style="color: var(--sage);">En línea</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--gold-soft);">
+                  <span>Bucket de fotos:</span>
+                  <strong id="diag-storage" style="color: var(--sage);">catalog-images</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--gold-soft);">
+                  <span>Seguridad RLS:</span>
+                  <strong style="color: var(--sage);">Activo</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>Despliegue Vercel:</span>
+                  <strong style="color: var(--burgundy);">Listo</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+  <div class="modal" id="product-modal" role="dialog" aria-labelledby="form-title" aria-modal="true">
+    <div class="modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <h2 id="form-title" style="margin: 0; font-size: 1.35rem;">Nuevo producto</h2>
+        <button type="button" id="btn-close-modal" aria-label="Cerrar modal" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--muted); line-height: 1; padding: 2px 6px;">&times;</button>
+      </div>
+
+      <div class="modal-steps-nav">
+        <button type="button" class="step-tab-btn active" data-step="1" id="tab-step-1">
+          <span class="step-num">1</span>
+          <span>Datos Básicos & Precios</span>
+        </button>
+        <button type="button" class="step-tab-btn" data-step="2" id="tab-step-2">
+          <span class="step-num">2</span>
+          <span>Fotos & Especificaciones</span>
+        </button>
+      </div>
+
+      <form id="product-form">
+        <div class="modal-step-pane active" id="pane-step-1">
+          <div class="field">
+            <label for="f-name">Nombre del ramo *</label>
+            <input id="f-name" required placeholder="Ej. Ramo Amor Radiante">
+          </div>
+
+          <div class="grid-2-col" style="margin-top: 14px;">
+            <div class="field">
+              <label for="f-cat">Categoría *</label>
+              <select id="f-cat" required></select>
+            </div>
+            <div class="field">
+              <label for="f-occ">Ocasión recomendada</label>
+              <select id="f-occ"></select>
+            </div>
+          </div>
+
+          <div class="field" style="margin-top: 14px;">
+            <label for="f-price">Precio en COP (deja vacío para "Consultar precio")</label>
+            <input id="f-price" type="number" min="0" step="1000" placeholder="Ej. 85000">
+          </div>
+
+          <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--gold-subtle);">
+            <label class="toggle-label">
+              <input id="f-avail" type="checkbox" checked>
+              <span>Disponible en catálogo</span>
+            </label>
+            <label class="toggle-label">
+              <input id="f-feat" type="checkbox">
+              <span>Destacar en Inicio (máx 3)</span>
+            </label>
+          </div>
+
+          <div class="form-actions" style="margin-top: 22px;">
+            <button class="btn btn-secondary" type="button" id="btn-cancel-modal">Cancelar</button>
+            <button class="btn btn-primary" type="button" id="btn-next-step">Siguiente: Fotos y Detalles →</button>
+          </div>
+        </div>
+
+        <div class="modal-step-pane" id="pane-step-2">
+          <div class="field">
+            <label>Fotos del ramo (Supabase Storage)</label>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: start;">
+              <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Subir fotos del producto" style="min-height: 80px; padding: 12px;">
+                <div>
+                  <p style="margin: 0; font-weight: 700; font-size: 0.88rem; color: var(--burgundy);">Arrastra tus fotos o haz clic para subir</p>
+                  <p class="muted" style="margin: 2px 0 0; font-size: 0.78rem;">JPG o PNG en la nube</p>
+                </div>
+              </div>
+              <div class="previews" id="image-previews" style="margin: 0; min-width: 90px;"></div>
+            </div>
+            <input id="file-input" type="file" accept="image/*" multiple hidden>
+          </div>
+
+          <div class="grid-2-col" style="margin-top: 12px;">
+            <div class="field">
+              <label for="f-flowers">Flores incluidas</label>
+              <input id="f-flowers" placeholder="Ej. Girasol y rosas en limpia pipas">
+            </div>
+            <div class="field">
+              <label for="f-size">Tamaño</label>
+              <input id="f-size" placeholder="Ej. Mediano (aprox. 35 cm)">
+            </div>
+          </div>
+
+          <div class="field" style="margin-top: 12px;">
+            <label for="f-desc">Descripción del ramo</label>
+            <textarea id="f-desc" rows="2" placeholder="Detalles de confección artesanal, cintas y colores..."></textarea>
+          </div>
+
+          <div class="form-actions" style="margin-top: 22px;">
+            <button class="btn btn-secondary" type="button" id="btn-prev-step">← Volver al paso 1</button>
+            <button class="btn btn-primary" type="submit" id="btn-save-product">Guardar producto</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="confirm-modal" role="dialog" aria-labelledby="confirm-title" aria-modal="true">
+    <div class="modal-card" style="max-width: 440px;">
+      <h2 id="confirm-title">¿Eliminar este producto?</h2>
+      <p style="font-size: 0.95rem; line-height: 1.6;">
+        Esta acción quitará el ramo del catálogo en la nube y en la tienda pública. ¿Deseas continuar?
+      </p>
+      <div class="form-actions">
+        <button class="btn btn-secondary" type="button" id="confirm-cancel">Cancelar</button>
+        <button class="btn btn-primary" type="button" id="confirm-delete" style="background-color: var(--error); border-color: var(--error);">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="admin-toast" role="status" aria-live="polite">
+    Guardado correctamente
+  </div>
+
+  <script type="module" src="./js/admin.js"></script>
+</body>
+</html>

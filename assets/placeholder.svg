@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Espacio para foto del ramo">
+  <rect width="400" height="500" fill="#F8E1E1"/>
+  <g fill="none" stroke="#C9A25B" stroke-width="1" opacity="0.7">
+    <rect x="18" y="18" width="364" height="464" rx="12"/>
+    <rect x="24" y="24" width="352" height="452" rx="10"/>
+  </g>
+  <g fill="none" stroke="#8B2F4B" stroke-width="1.4" opacity="0.55">
+    <path d="M200 330c0-40 28-72 28-108 0-22-12-40-28-40s-28 18-28 40c0 36 28 68 28 108z"/>
+    <path d="M172 210c-18-8-34 6-30 24 8 20 30 28 42 18"/>
+    <path d="M228 210c18-8 34 6 30 24-8 20-30 28-42 18"/>
+    <path d="M200 170c0-20 16-36 16-52"/>
+  </g>
+  <text x="200" y="390" text-anchor="middle" fill="#8B2F4B" font-family="Georgia, serif" font-size="16">Foto del ramo</text>
+  <text x="200" y="414" text-anchor="middle" fill="#7A7A55" font-family="Georgia, serif" font-size="12">Súbela desde el panel</text>
+</svg>
