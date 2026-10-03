@@ -26,7 +26,7 @@ create table if not exists public.settings (
   id text primary key default 'general',
   whatsapp text default '',
   instagram text default 'dulce.eternidad7',
-  hero_image text default './img/Ramo de flores amarillas artesanales.png',
+  hero_image text default 'https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/hero-flores-amarillas.png',
   updated_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
@@ -109,7 +109,7 @@ values (
   'general',
   '',
   'dulce.eternidad7',
-  './img/Ramo de flores amarillas artesanales.png',
+  'https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/hero-flores-amarillas.png',
   now()
 )
 on conflict (id) do nothing;
@@ -127,7 +127,7 @@ values
   'Mediano (aprox. 35 cm de alto)',
   true,
   true,
-  array['./img/Ramo Amor Radiante.jpeg']
+  array['https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/ramo-amor-radiante.jpeg']
 ),
 (
   'de-p2',
@@ -140,7 +140,7 @@ values
   'Mediano (aprox. 35 cm de alto)',
   true,
   true,
-  array['./img/5 Gerberas.jpeg']
+  array['https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/5-gerberas.jpeg']
 ),
 (
   'de-p3',
@@ -153,7 +153,7 @@ values
   'Pequeño (aprox. 25 cm de alto)',
   true,
   true,
-  array['./img/Dúo de amor.jpeg']
+  array['https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/duo-de-amor.jpeg']
 ),
 (
   'de-p4',
@@ -166,7 +166,7 @@ values
   'Mediano (aprox. 35 cm de alto)',
   true,
   false,
-  array['./img/Ramo Día de Sol.jpeg']
+  array['https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/ramo-dia-de-sol.jpeg']
 ),
 (
   'de-p5',
@@ -179,7 +179,7 @@ values
   'Grande (aprox. 45 cm de alto)',
   true,
   false,
-  array['./img/Ramo Eterno Encanto.jpeg']
+  array['https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/ramo-eterno-encanto.jpeg']
 ),
 (
   'de-p6',
@@ -192,7 +192,7 @@ values
   'Mediano (aprox. 38 cm de alto)',
   true,
   false,
-  array['./img/Ramo Mi Delirio.jpeg']
+  array['https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/ramo-mi-delirio.jpeg']
 ),
 (
   'de-p7',
@@ -205,7 +205,7 @@ values
   'Individual (aprox. 30 cm de alto)',
   true,
   false,
-  array['./img/Eterna.jpeg']
+  array['https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/eterna.jpeg']
 ),
 (
   'de-p8',
@@ -218,6 +218,6 @@ values
   'A medida',
   true,
   false,
-  array['./img/Ramo Eterno Encanto.jpeg']
+  array['https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/ramo-eterno-encanto.jpeg']
 )
 on conflict (id) do nothing;

@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "npx --yes serve . -p 5173",
     "start": "npx --yes serve . -p 5173",
-    "build": "echo 'Sitio estático preparado para Vercel'"
+    "build": "node scripts/build.js",
+    "build:dev": "node scripts/build.js --dev"
+  },
+  "devDependencies": {
+    "terser": "^5.51.2"
   }
 }

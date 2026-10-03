@@ -8,14 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="/css/app.css">
 </head>
 <body class="admin-body">
   <div class="admin-shell">
 
     <aside class="sidebar" id="sidebar" aria-label="Menú del panel de administración">
       <div class="side-brand">
-        <img src="./img/Logo.jpeg" alt="Logo Dulce Eternidad">
+        <img src="https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/logo.jpeg" alt="Logo Dulce Eternidad">
         <div>
           <strong>Dulce Eternidad</strong>
           <span style="display:block; font-size:0.72rem; color: var(--gold); letter-spacing:0.06em; text-transform:uppercase;">Panel de Control</span>
@@ -118,7 +118,7 @@
 
         <div class="admin-top-actions">
           <span id="db-status-badge" class="badge" style="font-size: 0.78rem; text-transform: none; letter-spacing: normal;">Verificando...</span>
-          <a href="./index.html" class="btn btn-secondary" style="min-height: 38px; padding: 6px 14px; font-size: 0.88rem;" target="_blank">
+          <a href="/" class="btn btn-secondary" style="min-height: 38px; padding: 6px 14px; font-size: 0.88rem;" target="_blank">
             Ver tienda ↗
           </a>
         </div>
@@ -392,7 +392,7 @@
                   </div>
                   <div class="field">
                     <label for="f-hero-btn1-link">Enlace botón principal</label>
-                    <input id="f-hero-btn1-link" placeholder="./catalogo.html">
+                    <input id="f-hero-btn1-link" placeholder="/catalogo">
                   </div>
                 </div>
 
@@ -403,14 +403,14 @@
                   </div>
                   <div class="field">
                     <label for="f-hero-btn2-link">Enlace botón secundario</label>
-                    <input id="f-hero-btn2-link" placeholder="./nosotros.html">
+                    <input id="f-hero-btn2-link" placeholder="/nosotros">
                   </div>
                 </div>
 
                 <div class="field field-spaced">
                   <label for="f-hero-image">Fotografía del Banner (Ruta local o URL)</label>
                   <div style="display: flex; gap: 8px;">
-                    <input id="f-hero-image" type="text" style="flex: 1;" placeholder="./img/Ramo de flores amarillas artesanales.png">
+                    <input id="f-hero-image" type="text" style="flex: 1;" placeholder="https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/hero-flores-amarillas.png">
                     <button type="button" class="btn btn-secondary" id="btn-hero-reset-img" style="white-space: nowrap; font-size: 0.82rem; padding: 8px 12px;">
                       Oficial
                     </button>
@@ -684,7 +684,7 @@
               </div>
               <div class="preview-box" style="display: flex; align-items: center; justify-content: space-between;">
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <img src="./img/Logo.jpeg" alt="" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold-soft);">
+                  <img src="https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/logo.jpeg" alt="" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold-soft);">
                   <div>
                     <strong id="prev-brand-name" style="font-family: serif; font-size: 1.1rem; color: var(--burgundy); display: block;">Dulce Eternidad</strong>
                     <span id="prev-brand-sub" style="font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;">Boutique floral</span>
@@ -1012,6 +1012,6 @@
     Guardado correctamente
   </div>
 
-  <script type="module" src="./js/admin.js"></script>
+  <script type="module" src="/js/admin.js"></script>
 </body>
 </html>

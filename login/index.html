@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="/css/app.css">
 </head>
 <body class="login-page">
   <main class="login-card">
-    <img class="logo" src="./img/Logo.jpeg" alt="Logo de Dulce Eternidad">
+    <img class="logo" src="https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/logo.jpeg" alt="Logo de Dulce Eternidad">
     <h1>Iniciar sesión</h1>
     <p class="sub">Acceso al panel de administración para gestionar el catálogo floral.</p>
 
@@ -54,7 +54,7 @@
     </form>
 
     <div style="margin-top: 24px;">
-      <a href="./index.html" class="muted" style="text-decoration: underline; font-size: 0.92rem;">
+      <a href="/" class="muted" style="text-decoration: underline; font-size: 0.92rem;">
         ← Volver a la tienda
       </a>
     </div>
@@ -78,11 +78,11 @@
   </div>
 
   <script type="module">
-    import { checkAdminSession, loginUser, getUser, setUser, setSession } from "./js/store.js";
+    import { checkAdminSession, loginUser, getUser, setUser, setSession } from "/js/store.js";
 
     const hasSession = await checkAdminSession();
     if (hasSession) {
-      window.location.href = "./admin.html";
+      window.location.href = "/admin";
     }
 
     const form = document.getElementById("login-form");
@@ -145,7 +145,7 @@
 
       try {
         await loginUser(email, password, remember);
-        window.location.href = "./admin.html";
+        window.location.href = "/admin";
       } catch (err) {
         showError(err.message || "El correo o la contraseña no coinciden con los registrados.");
         submitBtn.disabled = false;

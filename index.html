@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="/css/app.css">
   <script>
     (function(){
       try {
         var raw = localStorage.getItem("dulce_eternidad_settings_v6") || localStorage.getItem("dulce_eternidad_settings");
-        var heroUrl = "./img/Ramo de flores amarillas artesanales.png";
+        var heroUrl = "https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/hero-flores-amarillas.png";
         if (raw) {
           var s = JSON.parse(raw);
           if (s && s.heroImage) heroUrl = s.heroImage;
@@ -47,7 +47,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: var(--hero-cached-bg, url("./img/Ramo de flores amarillas artesanales.png"));
+      background-image: var(--hero-cached-bg, url("https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/hero-flores-amarillas.png"));
       background-size: cover;
       background-position: right center;
       background-repeat: no-repeat;
@@ -632,10 +632,10 @@
             pensadas para los momentos que queremos recordar siempre.
           </p>
           <div class="hero-cta fade-up d3">
-            <a class="btn btn-primary" href="./catalogo.html" id="hero-cta-cat">
+            <a class="btn btn-primary" href="/catalogo" id="hero-cta-cat">
               Ver catálogo
             </a>
-            <a class="btn btn-secondary" href="./nosotros.html" id="hero-cta-nos">
+            <a class="btn btn-secondary" href="/nosotros" id="hero-cta-nos">
               Nuestra historia
             </a>
           </div>
@@ -838,7 +838,7 @@
       <div class="product-grid" id="featured-grid" data-featured></div>
 
       <div style="text-align:center; margin-top:36px;" class="fade-up">
-        <a class="btn btn-secondary" href="./catalogo.html" id="cta-catalogo">
+        <a class="btn btn-secondary" href="/catalogo" id="cta-catalogo">
           Ver todo el catálogo
         </a>
       </div>
@@ -866,9 +866,8 @@
       </div>
 
       <nav class="cat-grid" aria-label="Categorías del catálogo">
-        <a class="cat-tile fade-up" href="./catalogo.html?cat=Ramos" id="cat-ramos">
+        <a class="cat-tile fade-up" href="/catalogo?cat=Ramos" id="cat-ramos">
           <span class="cat-icon">
-            
             <svg viewBox="0 0 24 24"><path d="M12 22v-8"/><path d="M12 14c0 0-4-2.5-4-6a4 4 0 0 1 8 0c0 3.5-4 6-4 6z"/><path d="M9.5 7C9.5 5.07 10.62 3.5 12 3.5s2.5 1.57 2.5 3.5"/></svg>
           </span>
           <div class="cat-tile-text">
@@ -878,9 +877,8 @@
           </div>
         </a>
 
-        <a class="cat-tile fade-up d1" href="./catalogo.html?cat=Arreglos" id="cat-arreglos">
+        <a class="cat-tile fade-up d1" href="/catalogo?cat=Arreglos" id="cat-arreglos">
           <span class="cat-icon">
-            
             <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
           </span>
           <div class="cat-tile-text">
@@ -890,9 +888,8 @@
           </div>
         </a>
 
-        <a class="cat-tile fade-up d2" href="./catalogo.html?cat=Eventos" id="cat-eventos">
+        <a class="cat-tile fade-up d2" href="/catalogo?cat=Eventos" id="cat-eventos">
           <span class="cat-icon">
-            
             <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </span>
           <div class="cat-tile-text">
@@ -902,9 +899,8 @@
           </div>
         </a>
 
-        <a class="cat-tile fade-up d3" href="./catalogo.html?cat=Regalos%20especiales" id="cat-regalos">
+        <a class="cat-tile fade-up d3" href="/catalogo?cat=Regalos%20especiales" id="cat-regalos">
           <span class="cat-icon">
-            
             <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
           </span>
           <div class="cat-tile-text">
@@ -983,7 +979,7 @@
               sin marchitarse.
             </p>
             <div style="margin-top: 24px;">
-              <a class="btn btn-secondary" href="./nosotros.html" id="hist-cta">Conocer más</a>
+              <a class="btn btn-secondary" href="/nosotros" id="hist-cta">Conocer más</a>
             </div>
           </div>
 
@@ -1028,7 +1024,7 @@
 
         <div class="ig-img-wrap">
           <img class="ig-img"
-               src="./img/Tarjeta.jpeg"
+               src="https://lwatxuxsyxzjmbvupqhq.supabase.co/storage/v1/object/public/catalog-images/tarjeta.jpeg"
                alt="Tarjeta de presentación de Dulce Eternidad con código QR hacia @dulce.eternidad7">
         </div>
       </div>
@@ -1039,8 +1035,8 @@
   <div data-footer></div>
 
   <script type="module">
-    import { getProducts, getSettings, getSettingsSync, DEFAULT_HERO_IMAGE } from "./js/store.js";
-    import { mountPublicChrome, productCard, escapeHtml } from "./js/ui.js";
+    import { getProducts, getSettings, getSettingsSync, DEFAULT_HERO_IMAGE } from "/js/store.js";
+    import { mountPublicChrome, productCard, escapeHtml } from "/js/ui.js";
 
     mountPublicChrome({ current: "inicio" });
 

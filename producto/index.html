@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
   <div data-header></div>
@@ -18,8 +18,8 @@
   <div data-footer></div>
 
   <script type="module">
-    import { getProduct, getProducts, formatPrice, whatsappUrl, instagramUrl, productImage } from "./js/store.js";
-    import { mountPublicChrome, productCard, escapeHtml } from "./js/ui.js";
+    import { getProduct, getProducts, formatPrice, whatsappUrl, instagramUrl, productImage } from "/js/store.js";
+    import { mountPublicChrome, productCard, escapeHtml } from "/js/ui.js";
 
     mountPublicChrome({ current: "catalogo" });
 
@@ -34,12 +34,12 @@
         <div class="card" style="text-align: center; padding: 48px 24px; margin: 40px auto; max-width: 580px; border: 1px solid var(--gold-soft);">
           <h1 style="font-size: 1.8rem; margin-bottom: 8px;">Producto no encontrado</h1>
           <p class="muted" style="margin-bottom: 24px; font-size: 0.95rem;">El ramo que buscas no existe o fue retirado del catálogo.</p>
-          <a class="btn btn-primary" href="./catalogo.html">Explorar catálogo completo</a>
+          <a class="btn btn-primary" href="/catalogo">Explorar catálogo completo</a>
         </div>
       `;
     } else {
       if (!id && product.id) {
-        history.replaceState(null, "", "./producto.html?id=" + encodeURIComponent(product.id));
+        history.replaceState(null, "", "/producto?id=" + encodeURIComponent(product.id));
       }
 
       document.title = `${product.name} - Dulce Eternidad`;
@@ -64,11 +64,11 @@
 
       mainEl.innerHTML = `
         <nav class="breadcrumbs" aria-label="Ruta de navegación">
-          <a href="./index.html">Inicio</a>
+          <a href="/">Inicio</a>
           <span>/</span>
-          <a href="./catalogo.html">Catálogo</a>
+          <a href="/catalogo">Catálogo</a>
           <span>/</span>
-          <a href="./catalogo.html?cat=${encodeURIComponent(product.category)}">${escapeHtml(product.category)}</a>
+          <a href="/catalogo?cat=${encodeURIComponent(product.category)}">${escapeHtml(product.category)}</a>
           <span>/</span>
           <span aria-current="page">${escapeHtml(product.name)}</span>
         </nav>
