@@ -17,3 +17,5 @@ Thumbs.db
 # Respaldos locales opcionales
 .env
 .env.local
+
+.vercel
